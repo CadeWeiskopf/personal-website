@@ -5,20 +5,58 @@
   align-items: center;
 }
 
+.quoteAndAuthorWrapper {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.quoteWrapper {
+  display: flex;
+}
+.quoteWrapper::before,
+.quoteWrapper::after {
+  content: '"';
+}
+.quote {
+  padding: 1em 0;
+  letter-spacing: 0.2rem;
+  text-align: center;
+}
+.quoteAuthor {
+  text-align: right;
+  font-size: 0.75rem;
+}
+.quoteAuthor::before {
+  content: "- ";
+}
+
 .nameWrapper {
   display: flex;
   flex-direction: row;
   letter-spacing: 0.4em;
   word-break: break-all;
   transition: 1s;
+  cursor: pointer;
+  margin-top: 10em;
 }
 .nameWrapper:hover {
   transition: 1s;
-  letter-spacing: 1rem;
+  letter-spacing: 0.9rem;
 }
 
 .name {
 }
 .name::first-letter {
   font-size: 2rem;
+}
+
+.subtitleWrapper {
+  font-size: 0.75rem;
+  letter-spacing: 0.4rem;
+  transition: 1s;
+  cursor: pointer;
+}
+.subtitleWrapper:hover {
+  letter-spacing: 0.6rem;
+  transition: 1s;
 }
