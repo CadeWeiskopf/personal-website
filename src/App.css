@@ -12,6 +12,7 @@ header {
 }
 main {
   grid-row: 2;
+  position: relative;
 }
 main > * {
   height: 100%;
