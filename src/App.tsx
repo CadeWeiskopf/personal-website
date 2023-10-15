@@ -1,12 +1,23 @@
 import React from "react";
 import "./App.css";
 import { AppContextProvider } from "./AppContext";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
 
 const App: React.FC = () => {
   return (
     <div className="app">
       <header>h</header>
-      <main>m</main>
+      <main>
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={<Home />}
+            />
+          </Routes>
+        </BrowserRouter>
+      </main>
       <footer>f</footer>
     </div>
   );
