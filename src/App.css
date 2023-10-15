@@ -13,6 +13,9 @@ header {
 main {
   grid-row: 2;
 }
+main > * {
+  height: 100%;
+}
 footer {
   grid-row: 3;
 }
