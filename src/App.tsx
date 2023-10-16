@@ -2,7 +2,11 @@ import React, { useContext } from "react";
 import "./App.css";
 import { AppContext, AppContextProvider } from "./AppContext";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home, { NameAndTitle } from "./pages/home/Home";
+import Home, {
+  AlignItems,
+  NameAndTitle,
+  TechStackIcons,
+} from "./pages/home/Home";
 import Nav from "./components/nav/Nav";
 import Contact from "./pages/contact/Contact";
 
@@ -17,7 +21,16 @@ const App: React.FC = () => {
           <Nav />
           {showHeader && (
             <div style={{ paddingTop: "0.5rem", paddingRight: "0.5rem" }}>
-              <NameAndTitle alignItems="flex-end" />
+              <NameAndTitle alignItems={AlignItems.FlexEnd} />
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  marginTop: "0.5em",
+                }}
+              >
+                <TechStackIcons justifyContent={AlignItems.FlexEnd} />
+              </div>
             </div>
           )}
           <Routes>
@@ -32,7 +45,7 @@ const App: React.FC = () => {
           </Routes>
         </BrowserRouter>
       </main>
-      <footer>f</footer>
+      <footer></footer>
     </div>
   );
 };
