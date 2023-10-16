@@ -64,17 +64,19 @@ const Home: React.FC = () => {
 
   return (
     <div className={styles.wrapper}>
-      <NameAndTitle alignItems={AlignItems.Center} />
-      <br />
-      <TechStackIcons justifyContent={AlignItems.Center} />
-      <br />
-      <div className={styles.quoteAndAuthorWrapper}>
-        <div className={styles.quoteWrapper}>
-          <div className={styles.quote}>
-            The only way to do great work is to love what you do.
+      <div className={styles.infoWrapper}>
+        <NameAndTitle alignItems={AlignItems.Center} />
+        <br />
+        <TechStackIcons justifyContent={AlignItems.Center} />
+        <br />
+        <div className={styles.quoteAndAuthorWrapper}>
+          <div className={styles.quoteWrapper}>
+            <div className={styles.quote}>
+              The only way to do great work is to love what you do.
+            </div>
           </div>
+          <div className={styles.quoteAuthor}>Steve Jobs</div>
         </div>
-        <div className={styles.quoteAuthor}>Steve Jobs</div>
       </div>
     </div>
   );

@@ -5,8 +5,16 @@
   align-items: center;
 }
 
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .quoteAndAuthorWrapper {
-  width: 50%;
+  /* width: 50%; */
+  width: 75%;
+  max-width: 750px;
   display: flex;
   flex-direction: column;
   filter: drop-shadow(10px 10px 10px rgba(255, 255, 255, 1));
