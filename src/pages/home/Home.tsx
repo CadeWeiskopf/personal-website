@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import styles from "./Home.module.css";
 import { AppContext } from "../../AppContext";
+import reactIcon from "../../components/icons/react-icon";
 
 export const NameAndTitle: React.FC<{
   alignItems: "flex-start" | "center" | "flex-end";
@@ -32,6 +33,7 @@ const Home: React.FC = () => {
 
   return (
     <div className={styles.wrapper}>
+      {reactIcon}
       <NameAndTitle alignItems="center" />
       <div className={styles.quoteAndAuthorWrapper}>
         <div className={styles.quoteWrapper}>
