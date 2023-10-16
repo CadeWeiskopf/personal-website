@@ -1,16 +1,38 @@
+import { useContext, useEffect } from "react";
 import styles from "./Home.module.css";
+import { AppContext } from "../../AppContext";
+
+export const NameAndTitle: React.FC<{
+  alignItems: "flex-start" | "center" | "flex-end";
+}> = ({ alignItems }) => {
+  return (
+    <>
+      <div
+        className={styles.nameAndTitleWrapper}
+        style={{ alignItems }}
+      >
+        <div className={styles.nameWrapper}>
+          <div className={styles.name}>Cade</div>
+          <div className={styles.name}>Weiskopf</div>
+        </div>
+        <div className={styles.subtitleWrapper}>
+          <div className={styles.subtitle}>&lt;Software Engineer&gt;</div>
+        </div>
+      </div>
+    </>
+  );
+};
 
 const Home: React.FC = () => {
+  const { setShowHeader } = useContext(AppContext);
+
+  useEffect(() => {
+    setShowHeader(false);
+  }, [setShowHeader]);
+
   return (
     <div className={styles.wrapper}>
-      <div className={styles.nameWrapper}>
-        <div className={styles.name}>Cade</div>
-        <div className={styles.name}>Weiskopf</div>
-      </div>
-      <div className={styles.subtitleWrapper}>
-        <div className={styles.subtitle}>&lt;Software Engineer&gt;</div>
-      </div>
-
+      <NameAndTitle alignItems="center" />
       <div className={styles.quoteAndAuthorWrapper}>
         <div className={styles.quoteWrapper}>
           <div className={styles.quote}>

@@ -1,8 +1,14 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 
-interface IAppContext {}
+interface IAppContext {
+  showHeader: boolean;
+  setShowHeader: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-const AppContext = React.createContext<IAppContext>({});
+export const AppContext = React.createContext<IAppContext>({
+  showHeader: false,
+  setShowHeader: () => {},
+});
 
 interface AppContextProviderProps {
   children: ReactNode;
@@ -11,5 +17,10 @@ interface AppContextProviderProps {
 export const AppContextProvider: React.FC<AppContextProviderProps> = (
   props
 ) => {
-  return <AppContext.Provider value={{}}>{props.children}</AppContext.Provider>;
+  const [showHeader, setShowHeader] = useState(false);
+  return (
+    <AppContext.Provider value={{ showHeader, setShowHeader }}>
+      {props.children}
+    </AppContext.Provider>
+  );
 };

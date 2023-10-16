@@ -36,6 +36,11 @@
   content: "- ";
 }
 
+.nameAndTitleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .nameWrapper {
   display: flex;
   flex-direction: row;

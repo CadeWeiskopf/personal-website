@@ -9,6 +9,7 @@
 
 header {
   grid-row: 1;
+  position: relative;
 }
 main {
   grid-row: 2;
@@ -26,4 +27,5 @@ footer {
   height: 100%;
   padding: 0.5rem;
   box-sizing: border-box;
+  stroke-width: 0.4;
 }
