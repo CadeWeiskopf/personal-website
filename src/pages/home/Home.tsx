@@ -8,6 +8,8 @@ import azureIcon from "../../components/icons/azure-icon";
 import awsIcon from "../../components/icons/aws-icon";
 import netsuiteIcon from "../../components/icons/netsuite-icon";
 import postgresIcon from "../../components/icons/postgres-icon";
+import nodeIcon from "../../components/icons/node-icon";
+import pyIcon from "../../components/icons/py-icon";
 
 export enum AlignItems {
   FlexStart = "flex-start",
@@ -44,6 +46,8 @@ export const TechStackIcons: React.FC<{ justifyContent: AlignItems }> = ({
       className={styles.iconsWrapper}
       style={{ justifyContent }}
     >
+      {pyIcon}
+      {nodeIcon}
       {reactIcon}
       {angularIcon}
       {dockerIcon}
