@@ -19,9 +19,10 @@
 .quoteWrapper::after {
   content: '"';
   font-size: 2rem;
+  padding: 0 0.1em;
 }
 .quote {
-  padding: 1em 0;
+  padding: 1.5em 0;
   letter-spacing: 0.2rem;
   text-align: center;
   font-size: 0.75rem;

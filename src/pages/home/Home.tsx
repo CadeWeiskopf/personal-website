@@ -71,10 +71,10 @@ const Home: React.FC = () => {
       <div className={styles.quoteAndAuthorWrapper}>
         <div className={styles.quoteWrapper}>
           <div className={styles.quote}>
-            The world is a book, and those who do not travel read only one page
+            The only way to do great work is to love what you do.
           </div>
         </div>
-        <div className={styles.quoteAuthor}>Saint Augustine</div>
+        <div className={styles.quoteAuthor}>Steve Jobs</div>
       </div>
     </div>
   );
