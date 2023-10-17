@@ -21,7 +21,10 @@ const App: React.FC = () => {
           <Nav />
           {showHeader && (
             <div style={{ paddingTop: "0.5rem", paddingRight: "0.5rem" }}>
-              <NameAndTitle alignItems={AlignItems.FlexEnd} />
+              <NameAndTitle
+                alignItems={AlignItems.FlexEnd}
+                initAnim={false}
+              />
               <div
                 style={{
                   display: "flex",

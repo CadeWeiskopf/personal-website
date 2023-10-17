@@ -61,6 +61,10 @@
   transition: 1s;
   letter-spacing: 0.9rem;
 }
+.nameWrapperInit {
+  transition: 1s;
+  letter-spacing: 0.9rem;
+}
 
 .name {
 }

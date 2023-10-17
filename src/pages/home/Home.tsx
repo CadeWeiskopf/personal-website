@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { createRef, useContext, useEffect, useState } from "react";
 import styles from "./Home.module.css";
 import { AppContext } from "../../AppContext";
 import reactIcon from "../../components/icons/react-icon";
@@ -19,14 +19,19 @@ export enum AlignItems {
 
 export const NameAndTitle: React.FC<{
   alignItems: AlignItems;
-}> = ({ alignItems }) => {
+  initAnim: boolean;
+}> = ({ alignItems, initAnim }) => {
   return (
     <>
       <div
         className={styles.nameAndTitleWrapper}
         style={{ alignItems }}
       >
-        <div className={styles.nameWrapper}>
+        <div
+          className={`${styles.nameWrapper} ${
+            initAnim ? styles.nameWrapperInit : ""
+          }`}
+        >
           <div className={styles.name}>Cade</div>
           <div className={styles.name}>Weiskopf</div>
         </div>
@@ -61,6 +66,17 @@ export const TechStackIcons: React.FC<{ justifyContent: AlignItems }> = ({
 
 const Home: React.FC = () => {
   const { setShowHeader } = useContext(AppContext);
+  const [initAnimNameAndTitle, setInitAnimNameAndTitle] = useState(false);
+
+  useEffect(() => {
+    setInitAnimNameAndTitle(true);
+    const disableInitAnimNameAndTitle = setTimeout(() => {
+      setInitAnimNameAndTitle(false);
+    }, 1500);
+    return () => {
+      clearTimeout(disableInitAnimNameAndTitle);
+    };
+  }, []);
 
   useEffect(() => {
     setShowHeader(false);
@@ -69,7 +85,10 @@ const Home: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.infoWrapper}>
-        <NameAndTitle alignItems={AlignItems.Center} />
+        <NameAndTitle
+          alignItems={AlignItems.Center}
+          initAnim={initAnimNameAndTitle}
+        />
         <br />
         <TechStackIcons justifyContent={AlignItems.Center} />
         <br />
