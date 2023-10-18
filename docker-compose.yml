@@ -1,0 +1,10 @@
+version: "3"
+services:
+  cadewdev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SERVER_NAME: cadew.dev
+      SSL_CERTIFICATE: /etc/nginx/ssl/cadew.dev.crt
+      SSL_CERTIFICATE_KEY: /etc/nginx/ssl/cadew.dev.key
