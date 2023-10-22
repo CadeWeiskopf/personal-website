@@ -12,6 +12,9 @@ const Chat: React.FC = () => {
 
   useEffect(() => {
     const client = new Client(`Test${new Date().getTime()}`);
+    return () => {
+      client.closeConnection();
+    };
   }, []);
 
   return (

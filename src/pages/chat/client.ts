@@ -1,7 +1,5 @@
 import {
-  client as WebSocketClient,
   Message as WebSocketMessage,
-  connection as WebSocketConnection,
   w3cwebsocket as W3CWebSocket,
   IMessageEvent,
   ICloseEvent,
@@ -16,14 +14,17 @@ interface IMessage {
 export class Client {
   private client: W3CWebSocket;
   private clientId: string;
-  private connection: WebSocketConnection | undefined;
 
   sendMessage = (message: string) => {
     const data: IMessage = {
       clientId: this.clientId,
       message,
     };
-    this.connection?.send(JSON.stringify(data));
+    this.client.send(JSON.stringify(data));
+  };
+
+  closeConnection = () => {
+    this.client.close();
   };
 
   private receiveMessage = (message: WebSocketMessage) => {
