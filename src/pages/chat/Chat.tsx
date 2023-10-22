@@ -74,8 +74,7 @@ const Chat: React.FC = () => {
     return () => {
       client?.closeConnection();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [client]);
 
   const sendMessageSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
