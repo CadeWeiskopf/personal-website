@@ -2,6 +2,7 @@ import styles from "./Nav.module.css";
 import compassIcon from "../icons/compass-icon";
 import { Link } from "react-router-dom";
 import { createRef } from "react";
+import routes from "../../AppRoutes";
 
 const navListRef = createRef<HTMLDivElement>();
 
@@ -37,18 +38,17 @@ export const NavList: React.FC = () => {
       className={styles.listWrapper}
       ref={navListRef}
     >
-      <Link
-        className={styles.listWrapperLink}
-        to="/contact"
-      >
-        Contact
-      </Link>
-      <Link
-        className={styles.listWrapperLink}
-        to="/"
-      >
-        Home
-      </Link>
+      {routes.map((route, index) => {
+        return (
+          <Link
+            key={`navlink-route-${index}`}
+            className={styles.listWrapperLink}
+            to={route.path}
+          >
+            {route.navLabel}
+          </Link>
+        );
+      })}
     </div>
   );
 };

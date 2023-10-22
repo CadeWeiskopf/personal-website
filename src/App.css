@@ -15,8 +15,11 @@ main {
   grid-row: 2;
   position: relative;
 }
-main > * {
+/* main.home > * {
   height: 100%;
+} */
+svg {
+  height: auto;
 }
 footer {
   grid-row: 3;
@@ -28,4 +31,11 @@ footer {
   padding: 0.5rem;
   box-sizing: border-box;
   stroke-width: 0.4;
+}
+
+.main-wrapper-with-header {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

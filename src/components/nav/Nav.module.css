@@ -29,6 +29,7 @@
 }
 .listWrapper {
   width: 250px;
+  height: 100%;
   background-color: white;
   position: absolute;
   width: 0px;

@@ -9,6 +9,8 @@ import Home, {
 } from "./pages/home/Home";
 import Nav from "./components/nav/Nav";
 import Contact from "./pages/contact/Contact";
+import Chat from "./pages/chat/Chat";
+import routes from "./AppRoutes";
 
 const App: React.FC = () => {
   const { showHeader } = useContext(AppContext);
@@ -20,7 +22,13 @@ const App: React.FC = () => {
         <BrowserRouter>
           <Nav />
           {showHeader && (
-            <div style={{ paddingTop: "0.5rem", paddingRight: "0.5rem" }}>
+            <div
+              style={{
+                paddingTop: "0.5rem",
+                paddingRight: "0.5rem",
+                height: "auto",
+              }}
+            >
               <NameAndTitle
                 alignItems={AlignItems.FlexEnd}
                 initAnim={false}
@@ -37,14 +45,15 @@ const App: React.FC = () => {
             </div>
           )}
           <Routes>
-            <Route
-              path="/"
-              element={<Home />}
-            />
-            <Route
-              path="/contact"
-              element={<Contact />}
-            />
+            {routes.map((route, index) => {
+              return (
+                <Route
+                  key={`app-route-${index}`}
+                  path={route.path}
+                  element={route.component}
+                />
+              );
+            })}
           </Routes>
         </BrowserRouter>
       </main>

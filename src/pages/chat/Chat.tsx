@@ -1,19 +1,24 @@
+import { Client } from "./client";
+import styles from "./Chat.module.css";
 import { useContext, useEffect } from "react";
 import { AppContext } from "../../AppContext";
-import styles from "./Contact.module.css";
 
-const Contact: React.FC = () => {
+const Chat: React.FC = () => {
   const { setShowHeader } = useContext(AppContext);
 
   useEffect(() => {
     setShowHeader(true);
   }, [setShowHeader]);
 
+  useEffect(() => {
+    const client = new Client(`Test${new Date().getTime()}`);
+  }, []);
+
   return (
     <div className={`main-wrapper-with-header ${styles.wrapper}`}>
-      <h1>Contact</h1>
+      <h1>Chat</h1>
+      <p>Hello, welcome</p>
     </div>
   );
 };
-
-export default Contact;
+export default Chat;
