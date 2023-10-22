@@ -6,7 +6,7 @@ import {
 } from "websocket";
 const { REACT_APP_CHAT_SERVICE_ADDRESS } = process.env;
 
-interface IMessage {
+export interface IMessage {
   clientId: string;
   message: string;
 }
@@ -37,7 +37,11 @@ export class Client {
     }
   };
 
-  constructor(id: string, onConnectCallback?: (client: Client) => void) {
+  constructor(
+    id: string,
+    onMessageEvent: (message: IMessageEvent) => void,
+    onConnectCallback?: (client: Client) => void
+  ) {
     this.clientId = id;
 
     this.client = new W3CWebSocket(
@@ -51,7 +55,7 @@ export class Client {
 
     this.client.onclose = (event: ICloseEvent) => {};
 
-    this.client.onmessage = (message: IMessageEvent) => {};
+    this.client.onmessage = onMessageEvent;
 
     this.client.onerror = (error: Error) => {};
   }

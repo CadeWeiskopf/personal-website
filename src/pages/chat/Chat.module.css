@@ -1,2 +1,19 @@
 .wrapper {
 }
+.chatWrapper {
+  border: 1px solid;
+  width: 100%;
+  max-width: 200px;
+  height: 200px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr auto;
+}
+.chatMessages {
+  grid-row: 1;
+  overflow: scroll;
+  overflow-x: auto;
+}
+.chatInput {
+  grid-row: 2;
+}
