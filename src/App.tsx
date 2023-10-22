@@ -2,14 +2,8 @@ import React, { useContext } from "react";
 import "./App.css";
 import { AppContext, AppContextProvider } from "./AppContext";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home, {
-  AlignItems,
-  NameAndTitle,
-  TechStackIcons,
-} from "./pages/home/Home";
+import { AlignItems, NameAndTitle, TechStackIcons } from "./pages/home/Home";
 import Nav from "./components/nav/Nav";
-import Contact from "./pages/contact/Contact";
-import Chat from "./pages/chat/Chat";
 import routes from "./AppRoutes";
 
 const App: React.FC = () => {

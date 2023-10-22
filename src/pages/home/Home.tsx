@@ -1,4 +1,4 @@
-import { createRef, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "./Home.module.css";
 import { AppContext } from "../../AppContext";
 import reactIcon from "../../components/icons/react-icon";
