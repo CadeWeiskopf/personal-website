@@ -3,7 +3,7 @@ import { Client, IMessage } from "./client";
 import styles from "./Chat.module.css";
 import { useContext, useEffect, useRef, useState } from "react";
 import { AppContext } from "../../AppContext";
-import { IMessageEvent } from "websocket";
+import { ICloseEvent, IMessageEvent } from "websocket";
 
 const GetUsernameComponent: React.FC<{
   setClientUsername: React.Dispatch<React.SetStateAction<string>>;
@@ -60,14 +60,28 @@ const Chat: React.FC = () => {
       return;
     }
 
+    const clientOnConnect = (client: Client) => {
+      console.log("connected");
+      setClient(client);
+    };
+
     const clientOnMessageEvent = (message: IMessageEvent) => {
       setMessages((messages) => {
         messages.push(JSON.parse(message.data.toString()));
         return messages.map((e) => e);
       });
     };
-    const newClient = new Client(clientUsername, clientOnMessageEvent);
-    setClient(newClient);
+
+    const clientOnCloseEvent = (event: ICloseEvent) => {
+      setClient(undefined);
+    };
+
+    new Client(
+      clientUsername,
+      clientOnMessageEvent,
+      clientOnCloseEvent,
+      clientOnConnect
+    );
   }, [client, clientUsername]);
 
   useEffect(() => {
@@ -85,12 +99,13 @@ const Chat: React.FC = () => {
       throw Error("missing client in state");
     }
     client.sendMessage(messageInputRef.current.value);
+    messageInputRef.current.value = "";
   };
 
   return (
     <div className={`main-wrapper-with-header ${styles.wrapper}`}>
       <h1>Chat</h1>
-      {!clientUsername ? (
+      {!clientUsername || !client ? (
         <GetUsernameComponent setClientUsername={setClientUsername} />
       ) : (
         <>
@@ -104,9 +119,12 @@ const Chat: React.FC = () => {
                 return (
                   <div
                     key={`chat-message-${index}`}
-                    className={styles.chatMessage}
+                    className={styles.chatMessageWrapper}
                   >
-                    {message.clientId} -- {message.message}
+                    <div className={styles.chatMessageClient}>
+                      {message.clientId}
+                    </div>
+                    <div className={styles.chatMessage}>{message.message}</div>
                   </div>
                 );
               })}

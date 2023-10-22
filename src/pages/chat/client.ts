@@ -1,5 +1,4 @@
 import {
-  Message as WebSocketMessage,
   w3cwebsocket as W3CWebSocket,
   IMessageEvent,
   ICloseEvent,
@@ -27,20 +26,11 @@ export class Client {
     this.client.close();
   };
 
-  private receiveMessage = (message: WebSocketMessage) => {
-    if (message.type === "utf8") {
-      console.log(`${this.clientId} New WebSocketMessage: ${message.utf8Data}`);
-    } else if (message.type === "binary") {
-      console.log(
-        `${this.clientId} New binary message: ${message.binaryData.length} bytes`
-      );
-    }
-  };
-
   constructor(
     id: string,
     onMessageEvent: (message: IMessageEvent) => void,
-    onConnectCallback?: (client: Client) => void
+    onCloseEvent: (event: ICloseEvent) => void,
+    onConnectCallback: (client: Client) => void
   ) {
     this.clientId = id;
 
@@ -51,12 +41,17 @@ export class Client {
 
     this.client.onopen = () => {
       this.sendMessage("Hello world!");
+      onConnectCallback(this);
     };
 
-    this.client.onclose = (event: ICloseEvent) => {};
+    this.client.onclose = onCloseEvent;
 
     this.client.onmessage = onMessageEvent;
 
-    this.client.onerror = (error: Error) => {};
+    this.client.onerror = (error: Error) => {
+      console.error(error);
+      const isClosed = this.client.readyState === this.client.CLOSED;
+      console.log(`isClosed=${isClosed}`);
+    };
   }
 }

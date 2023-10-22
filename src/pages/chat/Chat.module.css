@@ -13,7 +13,19 @@
   grid-row: 1;
   overflow: scroll;
   overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 .chatInput {
   grid-row: 2;
+}
+
+.chatMessageWrapper {
+  background-color: rgba(73, 123, 250, 0.25);
+}
+.chatMessageClient {
+  font-weight: bold;
+}
+.chatMessage {
 }
