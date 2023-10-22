@@ -13,23 +13,29 @@ const Chat: React.FC = () => {
   const [messages, setMessages] = useState<IMessage[]>([]);
   const [client, setClient] = useState<Client>();
 
+  const messagesWrapperRef = useRef<HTMLDivElement>(null);
   const messageInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    if (!messagesWrapperRef.current) {
+      throw Error("missing messagesWrapperRef.current");
+    }
+    messagesWrapperRef.current.scrollTop =
+      messagesWrapperRef.current.scrollHeight;
+  }, [messages]);
+
+  useEffect(() => {
     const clientOnMessageEvent = (message: IMessageEvent) => {
-      console.log("received message", JSON.parse(message.data.toString()));
       setMessages((messages) => {
         messages.push(JSON.parse(message.data.toString()));
         return messages.map((e) => e);
       });
     };
-
     const newClient = new Client(
       `Test${new Date().getTime()}`,
       clientOnMessageEvent
     );
     setClient(newClient);
-
     return () => {
       newClient.closeConnection();
     };
@@ -51,7 +57,10 @@ const Chat: React.FC = () => {
       <h1>Chat</h1>
       <p>Hello, welcome</p>
       <div className={styles.chatWrapper}>
-        <div className={styles.chatMessages}>
+        <div
+          className={styles.chatMessages}
+          ref={messagesWrapperRef}
+        >
           {messages.map((message, index) => {
             return (
               <div
