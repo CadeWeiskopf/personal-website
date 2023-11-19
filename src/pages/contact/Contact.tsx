@@ -3,7 +3,7 @@ import { AppContext } from "../../AppContext";
 import styles from "./Contact.module.css";
 import { EmailData } from "../../data/shared-types/types";
 
-type IDataRef = {
+type DataRef = {
   ref: React.RefObject<any>;
   refName: string;
 };
@@ -14,7 +14,7 @@ const Contact: React.FC = () => {
     setShowHeader(true);
   }, [setShowHeader]);
 
-  const dataRefs: IDataRef[] = [
+  const dataRefs: DataRef[] = [
     {
       ref: useRef<HTMLInputElement>(null),
       refName: "firstName",
@@ -36,14 +36,14 @@ const Contact: React.FC = () => {
       refName: "phone",
     },
   ];
-  const getDataRef = (refName: string): IDataRef => {
+  const getDataRef = (refName: string): DataRef => {
     const dataRef = dataRefs.find((e) => e.refName === refName);
     if (!dataRef) {
       throw Error(`No dataRef in dataRefs with refName=${refName}`);
     }
     return dataRef;
   };
-  const checkRefCurrent = (dataRef: IDataRef) => {
+  const checkRefCurrent = (dataRef: DataRef) => {
     if (!!dataRef.ref.current) {
       return true;
     }
