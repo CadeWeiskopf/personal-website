@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef } from "react";
 import { AppContext } from "../../AppContext";
 import styles from "./Contact.module.css";
+import { EmailData } from "../../data/shared-types/types";
 
 type IDataRef = {
   ref: React.RefObject<any>;
@@ -56,16 +57,27 @@ const Contact: React.FC = () => {
     }
     dataRefs.forEach((e) => checkRefCurrent(e));
 
-    console.log("submit");
+    const body: EmailData = {
+      firstName: getDataRef("firstName").ref.current.value,
+      lastName: getDataRef("lastName").ref.current.value,
+      companyName: getDataRef("companyName").ref.current.value,
+      email: getDataRef("email").ref.current.value,
+      phone: getDataRef("phone").ref.current.value,
+    };
     const response = await fetch(
       `${process.env.REACT_APP_EMAIL_SERVICE_URL}/email`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: "{}",
+        body: JSON.stringify(body),
       }
     );
-    console.log(response);
+    if (!response.ok || response.status !== 200) {
+      throw Error("bad response");
+    }
+
+    const responseData = await response.json();
+    console.log(responseData);
   };
 
   return (
