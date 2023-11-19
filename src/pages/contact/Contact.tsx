@@ -45,7 +45,6 @@ const Contact: React.FC = () => {
       <h1>Contact</h1>
       <form onSubmit={handleSubmit}>
         <h2>Fill out details</h2>
-
         <input
           ref={newRef(dataRefs, useRef<HTMLInputElement>(null), "firstName")}
           required
@@ -72,12 +71,37 @@ const Contact: React.FC = () => {
           pattern="[0-9]+"
           maxLength={22}
         />
+
+        <input
+          ref={newRef(dataRefs, useRef<HTMLInputElement>(null), "priority")}
+          type="radio"
+          id="low"
+          name="fav_language"
+          value="low"
+        />
+        <label htmlFor="low">Low</label>
+        <input
+          ref={newRef(dataRefs, useRef<HTMLInputElement>(null), "priority")}
+          type="radio"
+          id="med"
+          name="fav_language"
+          value="med"
+        />
+        <label htmlFor="med">Medium</label>
+        <input
+          ref={newRef(dataRefs, useRef<HTMLInputElement>(null), "priority")}
+          type="radio"
+          id="high"
+          name="fav_language"
+          value="high"
+        />
+        <label htmlFor="high">High</label>
+
         <textarea
           ref={newRef(dataRefs, useRef<HTMLTextAreaElement>(null), "details")}
           required
           maxLength={500}
         />
-
         <button type="submit">Submit</button>
       </form>
     </div>
