@@ -102,6 +102,20 @@ const Contact: React.FC = () => {
           required
           maxLength={500}
         />
+
+        <input
+          ref={newRef(dataRefs, useRef<HTMLInputElement>(null), "agreeToTerms")}
+          type="checkbox"
+          id="terms"
+          required
+        />
+        <label htmlFor="terms">
+          By clicking I agree Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Atque aut, a quos, eaque necessitatibus reprehenderit sit, sint
+          incidunt laudantium facere non expedita! Odio est magni, accusamus
+          laudantium autem sed sapiente
+        </label>
+
         <button type="submit">Submit</button>
       </form>
     </div>
