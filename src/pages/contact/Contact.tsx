@@ -49,21 +49,33 @@ const Contact: React.FC = () => {
         <input
           ref={newRef(dataRefs, useRef<HTMLInputElement>(null), "firstName")}
           required
+          maxLength={100}
         />
         <input
           ref={newRef(dataRefs, useRef<HTMLInputElement>(null), "lastName")}
           required
+          maxLength={100}
         />
         <input
           ref={newRef(dataRefs, useRef<HTMLInputElement>(null), "companyName")}
+          maxLength={100}
         />
         <input
           ref={newRef(dataRefs, useRef<HTMLInputElement>(null), "email")}
           required
           type="email"
+          maxLength={320}
         />
         <input
           ref={newRef(dataRefs, useRef<HTMLInputElement>(null), "phone")}
+          type="tel"
+          pattern="[0-9]+"
+          maxLength={22}
+        />
+        <textarea
+          ref={newRef(dataRefs, useRef<HTMLTextAreaElement>(null), "details")}
+          required
+          maxLength={500}
         />
 
         <button type="submit">Submit</button>
