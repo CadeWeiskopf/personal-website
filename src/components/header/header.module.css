@@ -1,0 +1,56 @@
+.wrapper {
+  padding-top: "0.5rem";
+  padding-right: "0.5rem";
+  height: "auto";
+}
+
+.nameAndTitleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nameWrapper {
+  display: flex;
+  flex-direction: row;
+  letter-spacing: 0.4em;
+  word-break: break-all;
+  transition: 1s;
+  cursor: pointer;
+}
+.nameWrapper:hover {
+  transition: 1s;
+  letter-spacing: 0.9rem;
+}
+.nameWrapperInit {
+  transition: 1s;
+  letter-spacing: 0.9rem;
+}
+
+.name {
+}
+.name::first-letter {
+  font-size: 2rem;
+}
+
+.subtitleWrapper {
+  font-size: 0.75rem;
+  letter-spacing: 0.4rem;
+  transition: 1s;
+  cursor: pointer;
+}
+.subtitleWrapper:hover {
+  letter-spacing: 0.6rem;
+  transition: 1s;
+}
+
+.iconsWrapper {
+  margin-top: 0.4em;
+  display: flex;
+  gap: 0em;
+  transition: 1s;
+}
+.iconsWrapper:hover {
+  gap: 1em;
+  transition: 1s;
+  cursor: pointer;
+}

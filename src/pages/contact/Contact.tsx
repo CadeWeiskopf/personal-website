@@ -41,7 +41,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className={`main-wrapper-with-header ${styles.wrapper}`}>
+    <div className={styles.wrapper}>
       <h1>Contact</h1>
       <form onSubmit={handleSubmit}>
         <h2>Fill out details</h2>

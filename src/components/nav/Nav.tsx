@@ -34,7 +34,7 @@ export const NavButton: React.FC = () => {
 
 export const NavList: React.FC = () => {
   return (
-    <div
+    <nav
       className={styles.listWrapper}
       ref={navListRef}
     >
@@ -49,7 +49,7 @@ export const NavList: React.FC = () => {
           </Link>
         );
       })}
-    </div>
+    </nav>
   );
 };
 

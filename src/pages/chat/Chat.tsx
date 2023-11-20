@@ -103,7 +103,7 @@ const Chat: React.FC = () => {
   };
 
   return (
-    <div className={`main-wrapper-with-header ${styles.wrapper}`}>
+    <div className={styles.wrapper}>
       <h1>Chat</h1>
       {!clientUsername || !client ? (
         <GetUsernameComponent setClientUsername={setClientUsername} />
