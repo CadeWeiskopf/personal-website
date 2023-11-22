@@ -20,17 +20,19 @@ const App: React.FC = () => {
           />
         )}
         <main>
-          <Routes>
-            {routes.map((route, index) => {
-              return (
-                <Route
-                  key={`app-route-${index}`}
-                  path={route.path}
-                  element={route.component}
-                />
-              );
-            })}
-          </Routes>
+          <div className="main-wrapper">
+            <Routes>
+              {routes.map((route, index) => {
+                return (
+                  <Route
+                    key={`app-route-${index}`}
+                    path={route.path}
+                    element={route.component}
+                  />
+                );
+              })}
+            </Routes>
+          </div>
         </main>
       </BrowserRouter>
     </div>

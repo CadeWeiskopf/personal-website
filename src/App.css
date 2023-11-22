@@ -1,7 +1,6 @@
 .app {
   background-color: black;
-  color: white;
-
+  color: var(--text-primary);
   min-height: 100vh;
 }
 
@@ -16,4 +15,42 @@
 main {
   display: flex;
   justify-content: center;
+}
+.main-wrapper {
+  width: 100%;
+  max-width: 750px;
+}
+
+input:not([type="radio"]),
+select,
+textarea {
+  flex-grow: 1;
+}
+textarea {
+  resize: vertical;
+}
+
+.input-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.input-wrapper {
+  box-sizing: border-box;
+  flex-grow: 1;
+  border: 1px solid;
+  border-radius: 3 px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 1em;
+}
+
+.input-wrapper input:not([type]) + label {
+  top: -1em;
+  left: 0.85em;
+  position: absolute;
+  background-color: var(--background-primary);
+  padding: 0.2em 0.5em;
 }
