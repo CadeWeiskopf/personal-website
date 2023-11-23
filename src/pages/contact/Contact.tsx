@@ -7,6 +7,7 @@ import {
   generateObject,
   newRef,
 } from "../../data/shared-types/data-refs";
+import InputWrapper, { InputTypes } from "../../components/inputs/InputWrapper";
 
 const Contact: React.FC = () => {
   const { setShowHeader } = useContext(AppContext);
@@ -47,63 +48,66 @@ const Contact: React.FC = () => {
         <h2>Fill out details</h2>
 
         <div className="input-row">
+          <InputWrapper
+            inputType={InputTypes.INPUT}
+            inputRef={newRef(
+              dataRefs,
+              useRef<HTMLInputElement>(null),
+              "firstName"
+            )}
+            label="First"
+            required={true}
+          />
+          <InputWrapper
+            inputType={InputTypes.INPUT}
+            inputRef={newRef(
+              dataRefs,
+              useRef<HTMLInputElement>(null),
+              "lastName"
+            )}
+            label="Last"
+            required={true}
+          />
+        </div>
+
+        <div className="input-row">
+          <InputWrapper
+            inputType={InputTypes.INPUT}
+            inputRef={newRef(
+              dataRefs,
+              useRef<HTMLInputElement>(null),
+              "lastName"
+            )}
+            label="Company"
+            required={true}
+            validations={{ maxLength: 1 }}
+          />
+        </div>
+
+        <div className="input-row">
           <div className="input-wrapper">
-            <input
-              id="firstName"
-              ref={newRef(
+            <InputWrapper
+              inputType={InputTypes.INPUT}
+              inputRef={newRef(
                 dataRefs,
                 useRef<HTMLInputElement>(null),
-                "firstName"
+                "email"
               )}
-              required
-              maxLength={100}
-            />
-            <label htmlFor="firstName">First</label>
-          </div>
-          <div className="input-wrapper">
-            <input
-              id="lastName"
-              ref={newRef(dataRefs, useRef<HTMLInputElement>(null), "lastName")}
-              required
-              maxLength={100}
-            />
-            <label htmlFor="lastName">Last</label>
-          </div>
-        </div>
-
-        <div className="input-row">
-          <div className="input-wrapper">
-            <input
-              ref={newRef(
-                dataRefs,
-                useRef<HTMLInputElement>(null),
-                "companyName"
-              )}
-              maxLength={100}
+              label="Email"
+              required={true}
+              validations={{ type: "email" }}
             />
           </div>
         </div>
 
         <div className="input-row">
-          <div className="input-wrapper">
-            <input
-              ref={newRef(dataRefs, useRef<HTMLInputElement>(null), "email")}
-              required
-              type="email"
-              maxLength={320}
-            />
-          </div>
-        </div>
-
-        <div className="input-row">
-          <div className="input-wrapper">
-            <input
-              ref={newRef(dataRefs, useRef<HTMLInputElement>(null), "phone")}
-              type="tel"
-              pattern="[0-9]+"
-              maxLength={22}
-            />
-          </div>
+          <InputWrapper
+            inputType={InputTypes.INPUT}
+            inputRef={newRef(dataRefs, useRef<HTMLInputElement>(null), "phone")}
+            label="Phone"
+            required={true}
+            validations={{ type: "tel", maxLength: 22, pattern: "[0-9]+" }}
+          />
         </div>
 
         <div className="input-row">
