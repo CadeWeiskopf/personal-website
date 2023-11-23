@@ -144,7 +144,7 @@ const Contact: React.FC = () => {
         </div>
 
         <div className="input-row">
-          <div className="input-wrapper">
+          {/* <div className="input-wrapper">
             <textarea
               ref={newRef(
                 dataRefs,
@@ -155,7 +155,17 @@ const Contact: React.FC = () => {
               maxLength={500}
               rows={5}
             />
-          </div>
+          </div> */}
+          <InputWrapper
+            inputType={InputTypes.TEXTAREA}
+            inputRef={newRef(
+              dataRefs,
+              useRef<HTMLTextAreaElement>(null),
+              "details"
+            )}
+            label="Notes"
+            required={true}
+          />
         </div>
 
         <div className="input-row">

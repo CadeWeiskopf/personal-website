@@ -6,15 +6,15 @@ type InputValidationProps = {
   pattern?: string;
   maxLength?: number;
 };
-type InputProps = {
-  inputRef: React.RefObject<HTMLInputElement>;
+type InputProps<T extends HTMLElement = HTMLElement> = {
+  inputRef: React.RefObject<T>;
   label: string;
   id: string;
   required: boolean;
   validations?: InputValidationProps;
 };
 
-const Input: React.FC<InputProps & InputValidationProps> = ({
+const Input: React.FC<InputProps<HTMLInputElement> & InputValidationProps> = ({
   inputRef,
   validations,
   label,
@@ -31,14 +31,34 @@ const Input: React.FC<InputProps & InputValidationProps> = ({
   );
 };
 
+const TextArea: React.FC<
+  InputProps<HTMLTextAreaElement> & InputValidationProps
+> = ({ inputRef, validations, label, ...props }) => {
+  return (
+    <>
+      <textarea
+        ref={inputRef}
+        {...props}
+      />
+      <label htmlFor={props.id}>{label}</label>
+    </>
+  );
+};
+
 /**
  * Object that maps to all the input types
  */
 const Inputs: {
-  [key: string]: (props: InputProps) => JSX.Element;
+  [key: string]: (props: InputProps<HTMLInputElement>) => JSX.Element;
 } = {
-  input: (props: InputProps) => (
+  input: (props: InputProps<HTMLInputElement>) => (
     <Input
+      {...props}
+      {...props.validations}
+    />
+  ),
+  textarea: (props: InputProps<HTMLTextAreaElement>) => (
+    <TextArea
       {...props}
       {...props.validations}
     />
@@ -52,6 +72,7 @@ const Inputs: {
  */
 export enum InputTypes {
   INPUT = "input",
+  TEXTAREA = "textarea",
 }
 
 type InputWrapperProps = {
