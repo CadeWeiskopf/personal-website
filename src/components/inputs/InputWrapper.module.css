@@ -19,7 +19,8 @@ textarea {
   padding: 1em;
 }
 
-.wrapper input:not([type="radio"]) + label {
+.wrapper input:not([type="radio"]) + label,
+.wrapper textarea + label {
   top: -1em;
   left: 0.85em;
   position: absolute;

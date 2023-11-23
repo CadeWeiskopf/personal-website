@@ -49,7 +49,9 @@ const TextArea: React.FC<
  * Object that maps to all the input types
  */
 const Inputs: {
-  [key: string]: (props: InputProps<HTMLInputElement>) => JSX.Element;
+  [key: string]: unknown;
+  input: (props: InputProps<HTMLInputElement>) => React.JSX.Element;
+  textarea: (props: InputProps<HTMLTextAreaElement>) => React.JSX.Element;
 } = {
   input: (props: InputProps<HTMLInputElement>) => (
     <Input
