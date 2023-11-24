@@ -1,12 +1,8 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect } from "react";
 import { AppContext } from "../../AppContext";
 import styles from "./Contact.module.css";
 import { EmailData, isEmailData } from "../../data/shared-types/types";
-import {
-  DataRef,
-  generateObject,
-  newRef,
-} from "../../data/shared-types/data-refs";
+import { Form } from "../../data/shared-types/data-refs";
 import InputWrapper, { InputTypes } from "../../components/inputs/InputWrapper";
 
 const Contact: React.FC = () => {
@@ -15,7 +11,7 @@ const Contact: React.FC = () => {
     setShowHeader(true);
   }, [setShowHeader]);
 
-  const dataRefs: DataRef[] = [];
+  const form = new Form();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -23,7 +19,8 @@ const Contact: React.FC = () => {
       throw Error("missing env var REACT_APP_EMAIL_SERVICE_URL");
     }
 
-    const body: EmailData = generateObject(isEmailData, dataRefs);
+    const body: EmailData = form.data(isEmailData);
+    console.log(body);
 
     const response = await fetch(
       `${process.env.REACT_APP_EMAIL_SERVICE_URL}/email`,
@@ -50,37 +47,24 @@ const Contact: React.FC = () => {
         <div className="input-row">
           <InputWrapper
             inputType={InputTypes.INPUT}
-            inputRef={newRef(
-              dataRefs,
-              useRef<HTMLInputElement>(null),
-              "firstName"
-            )}
+            inputRef={form.ref<HTMLInputElement>("firstName")}
             label="First"
-            required={true}
+            attributes={{ required: true }}
           />
           <InputWrapper
             inputType={InputTypes.INPUT}
-            inputRef={newRef(
-              dataRefs,
-              useRef<HTMLInputElement>(null),
-              "lastName"
-            )}
+            inputRef={form.ref<HTMLInputElement>("lastName")}
             label="Last"
-            required={true}
+            attributes={{ required: true }}
           />
         </div>
 
         <div className="input-row">
           <InputWrapper
             inputType={InputTypes.INPUT}
-            inputRef={newRef(
-              dataRefs,
-              useRef<HTMLInputElement>(null),
-              "lastName"
-            )}
+            inputRef={form.ref<HTMLInputElement>("companyName")}
             label="Company"
-            required={true}
-            validations={{ maxLength: 1 }}
+            attributes={{ maxLength: 1 }}
           />
         </div>
 
@@ -88,14 +72,9 @@ const Contact: React.FC = () => {
           <div className="input-wrapper">
             <InputWrapper
               inputType={InputTypes.INPUT}
-              inputRef={newRef(
-                dataRefs,
-                useRef<HTMLInputElement>(null),
-                "email"
-              )}
+              inputRef={form.ref<HTMLInputElement>("email")}
               label="Email"
-              required={true}
-              validations={{ type: "email" }}
+              attributes={{ type: "email", required: true }}
             />
           </div>
         </div>
@@ -103,90 +82,67 @@ const Contact: React.FC = () => {
         <div className="input-row">
           <InputWrapper
             inputType={InputTypes.INPUT}
-            inputRef={newRef(dataRefs, useRef<HTMLInputElement>(null), "phone")}
+            inputRef={form.ref<HTMLInputElement>("phone")}
             label="Phone"
-            required={true}
-            validations={{ type: "tel", maxLength: 22, pattern: "[0-9]+" }}
+            attributes={{ type: "tel", maxLength: 22, pattern: "[0-9]+" }}
           />
         </div>
 
         <div className="input-row">
-          <div className="input-wrapper">
-            <input
-              ref={newRef(dataRefs, useRef<HTMLInputElement>(null), "priority")}
-              type="radio"
-              id="low"
-              name="fav_language"
-              value="low"
-            />
-            <label htmlFor="low">Low</label>
-          </div>
-          <div className="input-wrapper">
-            <input
-              ref={newRef(dataRefs, useRef<HTMLInputElement>(null), "priority")}
-              type="radio"
-              id="med"
-              name="fav_language"
-              value="med"
-            />
-            <label htmlFor="med">Medium</label>
-          </div>
-          <div className="input-wrapper">
-            <input
-              ref={newRef(dataRefs, useRef<HTMLInputElement>(null), "priority")}
-              type="radio"
-              id="high"
-              name="fav_language"
-              value="high"
-            />
-            <label htmlFor="high">High</label>
-          </div>
+          <InputWrapper
+            inputType={InputTypes.INPUT}
+            inputRef={form.ref<HTMLInputElement>("priority")}
+            label="Low"
+            attributes={{
+              type: "radio",
+              name: "priority",
+              value: "low",
+              required: true,
+            }}
+          />
+          <InputWrapper
+            inputType={InputTypes.INPUT}
+            inputRef={form.ref<HTMLInputElement>("priority")}
+            label="Medium"
+            attributes={{
+              type: "radio",
+              name: "priority",
+              value: "medium",
+              required: true,
+            }}
+          />
+          <InputWrapper
+            inputType={InputTypes.INPUT}
+            inputRef={form.ref<HTMLInputElement>("priority")}
+            label="High"
+            attributes={{
+              type: "radio",
+              name: "priority",
+              value: "high",
+              required: true,
+            }}
+          />
         </div>
 
         <div className="input-row">
-          {/* <div className="input-wrapper">
-            <textarea
-              ref={newRef(
-                dataRefs,
-                useRef<HTMLTextAreaElement>(null),
-                "details"
-              )}
-              required
-              maxLength={500}
-              rows={5}
-            />
-          </div> */}
           <InputWrapper
             inputType={InputTypes.TEXTAREA}
-            inputRef={newRef(
-              dataRefs,
-              useRef<HTMLTextAreaElement>(null),
-              "details"
-            )}
+            inputRef={form.ref("details")}
             label="Notes"
-            required={true}
+            attributes={{ maxLength: 500, rows: 5 }}
           />
         </div>
 
         <div className="input-row">
-          <div className="input-wrapper">
-            <input
-              ref={newRef(
-                dataRefs,
-                useRef<HTMLInputElement>(null),
-                "agreeToTerms"
-              )}
-              type="checkbox"
-              id="terms"
-              required
-            />
-            <label htmlFor="terms">
-              By clicking I agree Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Atque aut, a quos, eaque necessitatibus
-              reprehenderit sit, sint incidunt laudantium facere non expedita!
-              Odio est magni, accusamus laudantium autem sed sapiente
-            </label>
-          </div>
+          <InputWrapper
+            inputType={InputTypes.INPUT}
+            inputRef={form.ref("priority")}
+            label="Terms & Conditions"
+            attributes={{
+              type: "checkbox",
+              required: true,
+            }}
+          />
         </div>
         <button type="submit">Submit</button>
       </form>

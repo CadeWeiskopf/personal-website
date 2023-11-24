@@ -1,22 +1,25 @@
 import styles from "./InputWrapper.module.css";
 import { v4 as uuidV4 } from "uuid";
 
-type InputValidationProps = {
+type InputAttributeProps = {
   type?: "input" | "checkbox" | "radio" | "tel" | "email";
   pattern?: string;
   maxLength?: number;
+  rows?: number;
+  value?: string | number;
+  name?: string;
+  required?: boolean;
 };
 type InputProps<T extends HTMLElement = HTMLElement> = {
   inputRef: React.RefObject<T>;
   label: string;
   id: string;
-  required: boolean;
-  validations?: InputValidationProps;
+  attributes?: InputAttributeProps;
 };
 
-const Input: React.FC<InputProps<HTMLInputElement> & InputValidationProps> = ({
+const Input: React.FC<InputProps<HTMLInputElement> & InputAttributeProps> = ({
   inputRef,
-  validations,
+  attributes,
   label,
   ...props
 }) => {
@@ -32,8 +35,8 @@ const Input: React.FC<InputProps<HTMLInputElement> & InputValidationProps> = ({
 };
 
 const TextArea: React.FC<
-  InputProps<HTMLTextAreaElement> & InputValidationProps
-> = ({ inputRef, validations, label, ...props }) => {
+  InputProps<HTMLTextAreaElement> & InputAttributeProps
+> = ({ inputRef, attributes, label, ...props }) => {
   return (
     <>
       <textarea
@@ -56,13 +59,13 @@ const Inputs: {
   input: (props: InputProps<HTMLInputElement>) => (
     <Input
       {...props}
-      {...props.validations}
+      {...props.attributes}
     />
   ),
   textarea: (props: InputProps<HTMLTextAreaElement>) => (
     <TextArea
       {...props}
-      {...props.validations}
+      {...props.attributes}
     />
   ),
 } as const;
@@ -81,8 +84,7 @@ type InputWrapperProps = {
   inputType: InputTypes;
   inputRef: React.RefObject<any>;
   label: string;
-  required: boolean;
-  validations?: InputValidationProps;
+  attributes?: InputAttributeProps;
 };
 
 /**
