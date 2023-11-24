@@ -4,7 +4,7 @@ import styles from "./Contact.module.css";
 import { EmailData, isEmailData } from "../../data/shared-types/types";
 import { Form } from "../../data/shared-types/data-refs";
 import InputWrapper, { InputTypes } from "../../components/inputs/InputWrapper";
-import { Input } from "../../components/inputs/GenericInputWrapper";
+import { FormInput, Input } from "../../components/inputs/GenericInputWrapper";
 
 const Contact: React.FC = () => {
   const { setShowHeader } = useContext(AppContext);
@@ -46,83 +46,119 @@ const Contact: React.FC = () => {
         <h2>Fill out details</h2>
 
         <div className="input-row">
-          <Input
-            inputType={InputTypes.INPUT}
-            label="First"
+          <FormInput
+            form={form}
             name="firstName"
-            form={form}
-            attributes={{ maxLength: 100, required: true }}
+            component={
+              <Input
+                inputType={InputTypes.INPUT}
+                label="First"
+                attributes={{ maxLength: 100, required: true }}
+              />
+            }
           />
-          <Input
-            inputType={InputTypes.INPUT}
-            label="Last"
+          <FormInput
+            form={form}
             name="lastName"
-            form={form}
-            attributes={{ maxLength: 100, required: true }}
+            component={
+              <Input
+                inputType={InputTypes.INPUT}
+                label="Last"
+                attributes={{ maxLength: 100, required: true }}
+              />
+            }
           />
         </div>
 
         <div className="input-row">
-          <Input
-            inputType={InputTypes.INPUT}
-            label="Company"
+          <FormInput
+            form={form}
             name="companyName"
-            form={form}
-            attributes={{ maxLength: 100 }}
+            component={
+              <Input
+                inputType={InputTypes.INPUT}
+                label="Company"
+                attributes={{ maxLength: 100 }}
+              />
+            }
           />
         </div>
 
         <div className="input-row">
-          <Input
-            inputType={InputTypes.INPUT}
-            label="Email"
+          <FormInput
+            form={form}
             name="email"
-            form={form}
-            attributes={{ type: "email", maxLength: 100, required: true }}
+            component={
+              <Input
+                inputType={InputTypes.INPUT}
+                label="Email"
+                attributes={{ type: "email", maxLength: 100, required: true }}
+              />
+            }
           />
         </div>
 
         <div className="input-row">
-          <Input
-            inputType={InputTypes.INPUT}
-            label="Phone"
-            name="phone"
+          <FormInput
             form={form}
-            attributes={{ type: "tel", maxLength: 22, pattern: "[0-9]+" }}
+            name="email"
+            component={
+              <Input
+                inputType={InputTypes.INPUT}
+                label="Phone"
+                attributes={{ type: "tel", maxLength: 22, pattern: "[0-9]+" }}
+              />
+            }
           />
         </div>
 
         <div className="input-row">
-          <Input
-            inputType={InputTypes.INPUT}
-            label="Low"
-            name="priority"
+          <FormInput
             form={form}
-            attributes={{ type: "radio", required: true, value: "low" }}
+            name="email"
+            component={
+              <Input
+                inputType={InputTypes.INPUT}
+                label="Low"
+                attributes={{ type: "radio", required: true, value: "low" }}
+              />
+            }
           />
-          <Input
-            inputType={InputTypes.INPUT}
-            label="Medium"
-            name="priority"
+          <FormInput
             form={form}
-            attributes={{ type: "radio", required: true, value: "med" }}
+            name="email"
+            component={
+              <Input
+                inputType={InputTypes.INPUT}
+                label="Medium"
+                attributes={{ type: "radio", required: true, value: "med" }}
+              />
+            }
           />
-          <Input
-            inputType={InputTypes.INPUT}
-            label="High"
-            name="priority"
+          <FormInput
             form={form}
-            attributes={{ type: "radio", required: true, value: "high" }}
+            name="email"
+            component={
+              <Input
+                inputType={InputTypes.INPUT}
+                label="High"
+                attributes={{ type: "radio", required: true, value: "high" }}
+              />
+            }
           />
         </div>
 
         <div className="input-row">
-          <Input
-            inputType={InputTypes.TEXTAREA}
-            label="Details"
-            name="details"
+          <FormInput
             form={form}
-            attributes={{ maxLength: 1000, rows: 5 }}
+            name="email"
+            component={
+              <Input
+                inputType={InputTypes.TEXTAREA}
+                label="Details"
+                attributes={{ maxLength: 1000, rows: 5 }}
+              />
+            }
           />
         </div>
 
@@ -136,7 +172,6 @@ const Contact: React.FC = () => {
             }}
           />
         </div> */}
-
         <button type="submit">Submit</button>
       </form>
     </div>
