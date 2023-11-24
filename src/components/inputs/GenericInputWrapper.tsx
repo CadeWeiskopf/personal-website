@@ -1,5 +1,5 @@
-import { RefObject } from "react";
-import { DataRef, Form } from "../../data/shared-types/data-refs";
+import { RefObject, useEffect } from "react";
+import { Form } from "../../data/shared-types/data-refs";
 import styles from "./InputWrapper.module.css";
 import { v4 as uuidV4 } from "uuid";
 
@@ -28,6 +28,10 @@ const TextInput: React.FC<InputProps<HTMLInputElement>> = ({
   attributes,
   callback,
 }) => {
+  useEffect(() => {
+    callback(inputRef, id);
+  }, [id, inputRef, callback]);
+
   return (
     <>
       <input
@@ -37,7 +41,6 @@ const TextInput: React.FC<InputProps<HTMLInputElement>> = ({
         {...attributes}
       />
       <label htmlFor={id}>{label}</label>
-      {callback()}
     </>
   );
 };
@@ -50,6 +53,10 @@ const TextArea: React.FC<InputProps<HTMLTextAreaElement>> = ({
   attributes,
   callback,
 }) => {
+  useEffect(() => {
+    callback(inputRef, id);
+  }, [id, inputRef, callback]);
+
   return (
     <>
       <textarea
@@ -59,7 +66,6 @@ const TextArea: React.FC<InputProps<HTMLTextAreaElement>> = ({
         {...attributes}
       />
       <label htmlFor={id}>{label}</label>
-      {callback()}
     </>
   );
 };
@@ -101,7 +107,7 @@ export const Input: React.FC<GenericInputWrapperProps> = ({
   attributes,
 }) => {
   const id = `${inputType}-${new Date().getTime()}-${uuidV4()}`;
-  const inputRef = form.ref<HTMLInputElement & HTMLTextAreaElement>(name);
+  const inputRef = form.ref<HTMLInputElement & HTMLTextAreaElement>(id, name);
   return (
     <div className={styles.wrapper}>
       {Inputs[inputType]({
@@ -110,14 +116,12 @@ export const Input: React.FC<GenericInputWrapperProps> = ({
         label,
         name,
         attributes,
-        callback: () => {
-          console.log("called back");
-          const nullRefs: DataRef[] = [];
-          form.getDataRefs().forEach((dataRef) => {
-            if (!dataRef.ref.current) {
-              nullRefs.push(dataRef);
-            }
-          });
+        callback: <T extends HTMLElement>(
+          ref: RefObject<T>,
+          id: string,
+          refName: string
+        ) => {
+          form.handleformComponentMounted({ ref, refName, id });
         },
       })}
     </div>
