@@ -48,6 +48,21 @@ const TextArea: React.FC<
   );
 };
 
+const Checkbox: React.FC<
+  InputProps<HTMLInputElement> & InputAttributeProps
+> = ({ inputRef, attributes, label, ...props }) => {
+  props.type = "checkbox";
+  return (
+    <>
+      <input
+        ref={inputRef}
+        {...props}
+      />
+      <label htmlFor={props.id}>{label}</label>
+    </>
+  );
+};
+
 /**
  * Object that maps to all the input types
  */
@@ -55,6 +70,7 @@ const Inputs: {
   [key: string]: unknown;
   input: (props: InputProps<HTMLInputElement>) => React.JSX.Element;
   textarea: (props: InputProps<HTMLTextAreaElement>) => React.JSX.Element;
+  checkbox: (props: InputProps<HTMLInputElement>) => React.JSX.Element;
 } = {
   input: (props: InputProps<HTMLInputElement>) => (
     <Input
@@ -64,6 +80,12 @@ const Inputs: {
   ),
   textarea: (props: InputProps<HTMLTextAreaElement>) => (
     <TextArea
+      {...props}
+      {...props.attributes}
+    />
+  ),
+  checkbox: (props: InputProps<HTMLInputElement>) => (
+    <Checkbox
       {...props}
       {...props.attributes}
     />
@@ -78,6 +100,7 @@ const Inputs: {
 export enum InputTypes {
   INPUT = "input",
   TEXTAREA = "textarea",
+  CHECKBOX = "checkbox",
 }
 
 type InputWrapperProps = {

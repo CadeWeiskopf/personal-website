@@ -4,6 +4,7 @@ import styles from "./Contact.module.css";
 import { EmailData, isEmailData } from "../../data/shared-types/types";
 import { Form } from "../../data/shared-types/data-refs";
 import InputWrapper, { InputTypes } from "../../components/inputs/InputWrapper";
+import { Input } from "../../components/inputs/GenericInputWrapper";
 
 const Contact: React.FC = () => {
   const { setShowHeader } = useContext(AppContext);
@@ -45,105 +46,97 @@ const Contact: React.FC = () => {
         <h2>Fill out details</h2>
 
         <div className="input-row">
-          <InputWrapper
+          <Input
             inputType={InputTypes.INPUT}
-            inputRef={form.ref<HTMLInputElement>("firstName")}
             label="First"
-            attributes={{ required: true }}
+            name="firstName"
+            form={form}
+            attributes={{ maxLength: 100, required: true }}
           />
-          <InputWrapper
+          <Input
             inputType={InputTypes.INPUT}
-            inputRef={form.ref<HTMLInputElement>("lastName")}
             label="Last"
-            attributes={{ required: true }}
+            name="lastName"
+            form={form}
+            attributes={{ maxLength: 100, required: true }}
           />
         </div>
 
         <div className="input-row">
-          <InputWrapper
+          <Input
             inputType={InputTypes.INPUT}
-            inputRef={form.ref<HTMLInputElement>("companyName")}
             label="Company"
-            attributes={{ maxLength: 1 }}
+            name="companyName"
+            form={form}
+            attributes={{ maxLength: 100 }}
           />
         </div>
 
         <div className="input-row">
-          <div className="input-wrapper">
-            <InputWrapper
-              inputType={InputTypes.INPUT}
-              inputRef={form.ref<HTMLInputElement>("email")}
-              label="Email"
-              attributes={{ type: "email", required: true }}
-            />
-          </div>
+          <Input
+            inputType={InputTypes.INPUT}
+            label="Email"
+            name="email"
+            form={form}
+            attributes={{ type: "email", maxLength: 100, required: true }}
+          />
         </div>
 
         <div className="input-row">
-          <InputWrapper
+          <Input
             inputType={InputTypes.INPUT}
-            inputRef={form.ref<HTMLInputElement>("phone")}
             label="Phone"
+            name="phone"
+            form={form}
             attributes={{ type: "tel", maxLength: 22, pattern: "[0-9]+" }}
           />
         </div>
 
         <div className="input-row">
-          <InputWrapper
+          <Input
             inputType={InputTypes.INPUT}
-            inputRef={form.ref<HTMLInputElement>("priority")}
             label="Low"
-            attributes={{
-              type: "radio",
-              name: "priority",
-              value: "low",
-              required: true,
-            }}
+            name="priority"
+            form={form}
+            attributes={{ type: "radio", required: true, value: "low" }}
           />
-          <InputWrapper
+          <Input
             inputType={InputTypes.INPUT}
-            inputRef={form.ref<HTMLInputElement>("priority")}
             label="Medium"
-            attributes={{
-              type: "radio",
-              name: "priority",
-              value: "medium",
-              required: true,
-            }}
+            name="priority"
+            form={form}
+            attributes={{ type: "radio", required: true, value: "med" }}
           />
-          <InputWrapper
+          <Input
             inputType={InputTypes.INPUT}
-            inputRef={form.ref<HTMLInputElement>("priority")}
             label="High"
-            attributes={{
-              type: "radio",
-              name: "priority",
-              value: "high",
-              required: true,
-            }}
+            name="priority"
+            form={form}
+            attributes={{ type: "radio", required: true, value: "high" }}
           />
         </div>
 
         <div className="input-row">
-          <InputWrapper
+          <Input
             inputType={InputTypes.TEXTAREA}
-            inputRef={form.ref("details")}
-            label="Notes"
-            attributes={{ maxLength: 500, rows: 5 }}
+            label="Details"
+            name="details"
+            form={form}
+            attributes={{ maxLength: 1000, rows: 5 }}
           />
         </div>
 
-        <div className="input-row">
+        {/* <div className="input-row">
           <InputWrapper
-            inputType={InputTypes.INPUT}
+            inputType={InputTypes.CHECKBOX}
             inputRef={form.ref("priority")}
             label="Terms & Conditions"
             attributes={{
-              type: "checkbox",
               required: true,
             }}
           />
-        </div>
+        </div> */}
+
         <button type="submit">Submit</button>
       </form>
     </div>
