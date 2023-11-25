@@ -1,4 +1,4 @@
-import { RefObject, useEffect } from "react";
+import { RefObject, useEffect, useRef } from "react";
 import { Form } from "../../data/shared-types/data-refs";
 import styles from "./InputWrapper.module.css";
 import { v4 as uuidV4 } from "uuid";
@@ -85,16 +85,52 @@ export const Input: React.FC<GenericInputWrapperProps> = ({
 };
 
 type FormInputProps = {
+  className?: string;
   form: Form;
   name: string;
   component: React.JSX.Element;
 };
 export const FormInput: React.FC<FormInputProps> = ({
+  className,
   form,
   name,
   component,
 }) => {
   const id = uuidV4();
   form.ref<HTMLInputElement & HTMLTextAreaElement>(id, name);
-  return component;
+  const inputWrapper = useRef<HTMLDivElement>(null);
+  let domElement: HTMLInputElement;
+  useEffect(() => {
+    console.log(inputWrapper.current);
+    const selectors = `input,select,textarea`;
+    const inputs = inputWrapper.current?.querySelectorAll(selectors);
+    if (!inputs) {
+      throw Error(`could not detect any inputs (${selectors}`);
+    }
+    if (inputs.length <= 0) {
+      throw Error("no inputs");
+    }
+    if (inputs.length > 1) {
+      throw Error("more than one inputs for one FormInput");
+    }
+    console.log(inputs[0]);
+    domElement = inputs[0] as HTMLInputElement;
+  });
+  return (
+    <div
+      className={className}
+      id={`${id}-wrapper`}
+      ref={inputWrapper}
+    >
+      <button
+        type="button"
+        onClick={() => {
+          console.log(domElement.value);
+        }}
+      >
+        ss
+      </button>
+      {component}
+    </div>
+  );
 };

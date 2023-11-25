@@ -57,6 +57,7 @@ const Contact: React.FC = () => {
               />
             }
           />
+
           <FormInput
             form={form}
             name="lastName"
@@ -70,7 +71,7 @@ const Contact: React.FC = () => {
           />
         </div>
 
-        <div className="input-row">
+        {/* <div className="input-row">
           <FormInput
             form={form}
             name="companyName"
@@ -160,7 +161,7 @@ const Contact: React.FC = () => {
               />
             }
           />
-        </div>
+        </div> */}
 
         {/* <div className="input-row">
           <InputWrapper
