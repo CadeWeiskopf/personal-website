@@ -110,7 +110,6 @@ export const FormInput: React.FC<FormInputProps> = ({
     if (inputs.length > 1) {
       throw Error("more than one inputs for one FormInput");
     }
-    console.log(inputs[0]);
     const domElement = inputs[0] as HTMLInputElement;
     form.ref(id, domElement, name);
   });
