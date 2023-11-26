@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Form } from "../../data/shared-types/data-refs";
 import styles from "./InputWrapper.module.css";
 import { v4 as uuidV4 } from "uuid";
@@ -99,7 +99,6 @@ export const FormInput: React.FC<FormInputProps> = ({
   const id = uuidV4();
   //   form.ref<HTMLInputElement & HTMLTextAreaElement>(id, name);
   const inputWrapper = useRef<HTMLDivElement>(null);
-  let domElement: HTMLInputElement;
   useEffect(() => {
     console.log(inputWrapper.current);
     const selectors = `input,select,textarea`;
@@ -114,7 +113,7 @@ export const FormInput: React.FC<FormInputProps> = ({
       throw Error("more than one inputs for one FormInput");
     }
     console.log(inputs[0]);
-    domElement = inputs[0] as HTMLInputElement;
+    const domElement = inputs[0] as HTMLInputElement;
     form.ref(id, domElement, name);
   });
   return (
