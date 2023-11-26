@@ -4,6 +4,7 @@ textarea {
   flex-grow: 1;
   background: transparent;
   border: 0;
+  color: var(--text-primary);
 }
 textarea {
   resize: vertical;
