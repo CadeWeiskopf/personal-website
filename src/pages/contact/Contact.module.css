@@ -1,2 +1,5 @@
 .wrapper {
 }
+.flexGrow {
+  flex-grow: 1;
+}

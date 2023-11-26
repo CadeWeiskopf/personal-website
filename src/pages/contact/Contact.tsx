@@ -49,6 +49,7 @@ const Contact: React.FC = () => {
           <FormInput
             form={form}
             name="firstName"
+            className={styles.flexGrow}
             component={
               <Input
                 inputType={InputTypes.INPUT}
@@ -61,6 +62,7 @@ const Contact: React.FC = () => {
           <FormInput
             form={form}
             name="lastName"
+            className={styles.flexGrow}
             component={
               <Input
                 inputType={InputTypes.INPUT}
@@ -71,10 +73,11 @@ const Contact: React.FC = () => {
           />
         </div>
 
-        {/* <div className="input-row">
+        <div className="input-row">
           <FormInput
             form={form}
             name="companyName"
+            className={styles.flexGrow}
             component={
               <Input
                 inputType={InputTypes.INPUT}
@@ -89,6 +92,7 @@ const Contact: React.FC = () => {
           <FormInput
             form={form}
             name="email"
+            className={styles.flexGrow}
             component={
               <Input
                 inputType={InputTypes.INPUT}
@@ -102,7 +106,8 @@ const Contact: React.FC = () => {
         <div className="input-row">
           <FormInput
             form={form}
-            name="email"
+            name="phone"
+            className={styles.flexGrow}
             component={
               <Input
                 inputType={InputTypes.INPUT}
@@ -116,34 +121,52 @@ const Contact: React.FC = () => {
         <div className="input-row">
           <FormInput
             form={form}
-            name="email"
+            name="priority"
+            className={styles.flexGrow}
             component={
               <Input
                 inputType={InputTypes.INPUT}
                 label="Low"
-                attributes={{ type: "radio", required: true, value: "low" }}
+                attributes={{
+                  name: "priority",
+                  type: "radio",
+                  required: true,
+                  value: "low",
+                }}
               />
             }
           />
           <FormInput
             form={form}
-            name="email"
+            name="priority"
+            className={styles.flexGrow}
             component={
               <Input
                 inputType={InputTypes.INPUT}
                 label="Medium"
-                attributes={{ type: "radio", required: true, value: "med" }}
+                attributes={{
+                  name: "priority",
+                  type: "radio",
+                  required: true,
+                  value: "med",
+                }}
               />
             }
           />
           <FormInput
             form={form}
-            name="email"
+            name="priority"
+            className={styles.flexGrow}
             component={
               <Input
                 inputType={InputTypes.INPUT}
                 label="High"
-                attributes={{ type: "radio", required: true, value: "high" }}
+                attributes={{
+                  name: "priority",
+                  type: "radio",
+                  required: true,
+                  value: "high",
+                }}
               />
             }
           />
@@ -152,7 +175,8 @@ const Contact: React.FC = () => {
         <div className="input-row">
           <FormInput
             form={form}
-            name="email"
+            name="details"
+            className={styles.flexGrow}
             component={
               <Input
                 inputType={InputTypes.TEXTAREA}
@@ -161,7 +185,7 @@ const Contact: React.FC = () => {
               />
             }
           />
-        </div> */}
+        </div>
 
         {/* <div className="input-row">
           <InputWrapper

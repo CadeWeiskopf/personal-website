@@ -97,10 +97,8 @@ export const FormInput: React.FC<FormInputProps> = ({
   component,
 }) => {
   const id = uuidV4();
-  //   form.ref<HTMLInputElement & HTMLTextAreaElement>(id, name);
   const inputWrapper = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    console.log(inputWrapper.current);
     const selectors = `input,select,textarea`;
     const inputs = inputWrapper.current?.querySelectorAll(selectors);
     if (!inputs) {
