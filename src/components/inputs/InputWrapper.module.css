@@ -2,6 +2,8 @@ input:not([type="radio"]),
 select,
 textarea {
   flex-grow: 1;
+  background: transparent;
+  border: 0;
 }
 textarea {
   resize: vertical;
