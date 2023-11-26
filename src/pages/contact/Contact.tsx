@@ -54,7 +54,11 @@ const Contact: React.FC = () => {
               <Input
                 inputType={InputTypes.INPUT}
                 label="First"
-                attributes={{ maxLength: 100, required: true }}
+                attributes={{
+                  maxLength: 100,
+                  required: true,
+                  placeholder: "First",
+                }}
               />
             }
           />
@@ -67,12 +71,16 @@ const Contact: React.FC = () => {
               <Input
                 inputType={InputTypes.INPUT}
                 label="Last"
-                attributes={{ maxLength: 100, required: true }}
+                attributes={{
+                  maxLength: 100,
+                  required: true,
+                  placeholder: "Last",
+                }}
               />
             }
           />
         </div>
-
+        {/* 
         <div className="input-row">
           <FormInput
             form={form}
@@ -185,7 +193,7 @@ const Contact: React.FC = () => {
               />
             }
           />
-        </div>
+        </div> */}
 
         {/* <div className="input-row">
           <InputWrapper

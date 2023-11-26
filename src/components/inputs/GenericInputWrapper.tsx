@@ -11,6 +11,7 @@ type InputAttributeProps = {
   value?: string | number;
   required?: boolean;
   name?: string;
+  placeholder?: string;
 };
 type InputProps = {
   label: string;
