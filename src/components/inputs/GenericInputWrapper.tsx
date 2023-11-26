@@ -97,7 +97,7 @@ export const FormInput: React.FC<FormInputProps> = ({
   component,
 }) => {
   const id = uuidV4();
-  form.ref<HTMLInputElement & HTMLTextAreaElement>(id, name);
+  //   form.ref<HTMLInputElement & HTMLTextAreaElement>(id, name);
   const inputWrapper = useRef<HTMLDivElement>(null);
   let domElement: HTMLInputElement;
   useEffect(() => {
@@ -115,6 +115,7 @@ export const FormInput: React.FC<FormInputProps> = ({
     }
     console.log(inputs[0]);
     domElement = inputs[0] as HTMLInputElement;
+    form.ref(id, domElement, name);
   });
   return (
     <div
@@ -122,14 +123,6 @@ export const FormInput: React.FC<FormInputProps> = ({
       id={`${id}-wrapper`}
       ref={inputWrapper}
     >
-      <button
-        type="button"
-        onClick={() => {
-          console.log(domElement.value);
-        }}
-      >
-        ss
-      </button>
       {component}
     </div>
   );
