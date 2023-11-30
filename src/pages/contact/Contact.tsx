@@ -81,7 +81,7 @@ const Contact: React.FC = () => {
             }
           />
         </div>
-        {/* 
+
         <div className="input-row">
           <FormInput
             form={form}
@@ -194,7 +194,7 @@ const Contact: React.FC = () => {
               />
             }
           />
-        </div> */}
+        </div>
 
         {/* <div className="input-row">
           <InputWrapper

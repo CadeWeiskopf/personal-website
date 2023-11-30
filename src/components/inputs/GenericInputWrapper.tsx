@@ -40,7 +40,9 @@ const TextArea: React.FC<InputProps> = ({ id, label, attributes }) => {
         id={id}
         {...attributes}
       />
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={id}>
+        <div className={styles.labelTextWrapper}>{label}</div>
+      </label>
     </>
   );
 };
