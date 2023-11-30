@@ -36,34 +36,3 @@ textarea {
   display: none;
   font-size: 12px;
 }
-.wrapper input:not([type="radio"]) + label::before,
-.wrapper textarea + label::before {
-  content: "";
-  position: absolute;
-  top: calc(50% + 1px);
-  left: -1px;
-  width: 50%;
-  height: 50%;
-  border-left: 6px solid var(--background-primary);
-  display: none;
-}
-.wrapper input:not([type="radio"]) + label::after,
-.wrapper textarea + label::after {
-  content: "";
-  position: absolute;
-  top: calc(50% + 1px);
-  right: -1px;
-  width: 50%;
-  height: 50%;
-  border-right: 6px solid var(--background-primary);
-  display: none;
-}
-
-.wrapper input:not([type="radio"]):focus + label,
-.wrapper textarea:focus + label,
-.wrapper input:not([type="radio"]):focus + label::before,
-.wrapper textarea:focus + label::before,
-.wrapper input:not([type="radio"]):focus + label::after,
-.wrapper textarea:focus + label::after {
-  display: block;
-}
