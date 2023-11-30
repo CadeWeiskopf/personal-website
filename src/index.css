@@ -15,4 +15,5 @@ code {
 :root {
   --background-primary: black;
   --text-primary: white;
+  --text-secondary: gray;
 }

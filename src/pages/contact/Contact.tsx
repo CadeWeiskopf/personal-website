@@ -3,8 +3,11 @@ import { AppContext } from "../../AppContext";
 import styles from "./Contact.module.css";
 import { EmailData, isEmailData } from "../../data/shared-types/types";
 import { Form } from "../../data/shared-types/data-refs";
-import InputWrapper, { InputTypes } from "../../components/inputs/InputWrapper";
-import { FormInput, Input } from "../../components/inputs/GenericInputWrapper";
+import {
+  FormInput,
+  Input,
+  InputTypes,
+} from "../../components/inputs/GenericInputWrapper";
 
 const Contact: React.FC = () => {
   const { setShowHeader } = useContext(AppContext);
@@ -57,7 +60,6 @@ const Contact: React.FC = () => {
                 attributes={{
                   maxLength: 100,
                   required: true,
-                  placeholder: "First",
                 }}
               />
             }
@@ -74,7 +76,6 @@ const Contact: React.FC = () => {
                 attributes={{
                   maxLength: 100,
                   required: true,
-                  placeholder: "Last",
                 }}
               />
             }
