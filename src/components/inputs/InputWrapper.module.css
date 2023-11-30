@@ -27,12 +27,8 @@ textarea {
   top: -1em;
   left: 0.85em;
   position: absolute;
-  background-color: var(--background-primary);
+  background-color: transparent;
   padding: 0.2em 0.5em;
-  border-top: 1px solid;
-  border-left: 1px solid;
-  border-right: 1px solid;
-  border-radius: 5px;
-  display: none;
+
   font-size: 12px;
 }
