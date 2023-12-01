@@ -2,12 +2,11 @@ import { useContext, useEffect } from "react";
 import { AppContext } from "../../AppContext";
 import styles from "./Contact.module.css";
 import { EmailData, isEmailData } from "../../data/shared-types/types";
-import { Form } from "../../data/shared-types/data-refs";
+import { Form, FormInput } from "../../components/cw-forms/cw-form";
 import {
-  FormInput,
   Input,
   InputTypes,
-} from "../../components/inputs/GenericInputWrapper";
+} from "../../components/cw-inputs/GenericInputWrapper";
 
 const Contact: React.FC = () => {
   const { setShowHeader } = useContext(AppContext);
@@ -47,7 +46,6 @@ const Contact: React.FC = () => {
       <h1>Contact</h1>
       <form onSubmit={handleSubmit}>
         <h2>Fill out details</h2>
-
         <div className="input-row">
           <FormInput
             form={form}
