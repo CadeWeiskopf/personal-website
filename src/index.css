@@ -13,7 +13,7 @@ code {
 }
 
 :root {
-  --background-primary: black;
-  --text-primary: white;
-  --text-secondary: gray;
+  --background-primary: #00050a;
+  --text-primary: #e2e2e2;
+  --text-secondary: #afafaf;
 }
