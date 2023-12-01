@@ -1,3 +1,9 @@
 [submodule "src/data/shared-types"]
 	path = src/data/shared-types
 	url = https://github.com/CadeWeiskopf/shared-types
+[submodule "src/components/cw-inputs"]
+	path = src/components/cw-inputs
+	url = https://github.com/CadeWeiskopf/cw-inputs
+[submodule "src/components/cw-forms"]
+	path = src/components/cw-forms
+	url = https://github.com/CadeWeiskopf/cw-forms
