@@ -20,8 +20,3 @@ main {
   width: 100%;
   max-width: 750px;
 }
-
-.input-row {
-  display: flex;
-  flex-wrap: wrap;
-}

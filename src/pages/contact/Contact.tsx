@@ -46,7 +46,7 @@ const Contact: React.FC = () => {
       <h1>Contact</h1>
       <form onSubmit={handleSubmit}>
         <h2>Fill out details</h2>
-        <div className="input-row">
+        <div className={styles.inputRow}>
           <FormInput
             form={form}
             name="firstName"

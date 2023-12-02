@@ -3,3 +3,13 @@
 .flexGrow {
   flex-grow: 1;
 }
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.inputRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
