@@ -3,7 +3,7 @@ export default (
     width="800px"
     height="800px"
     viewBox="0 0 12 12"
-    enable-background="new 0 0 12 12"
+    enableBackground="new 0 0 12 12"
     id="Слой_1"
     version="1.1"
     className="compass-icon"

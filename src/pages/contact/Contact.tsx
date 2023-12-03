@@ -43,9 +43,16 @@ const Contact: React.FC = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h1>Contact</h1>
+      <div className={styles.topHeaderWrapper}>
+        <h1>Contact</h1>
+        <img
+          className={styles.topHeaderWrapperImg}
+          src="https://i.ibb.co/M5vZxBt/Untitled.png"
+          alt="Untitled"
+        />
+      </div>
+      <h2>Fill out details</h2>
       <form onSubmit={handleSubmit}>
-        <h2>Fill out details</h2>
         <div className={styles.inputRow}>
           <FormInput
             form={form}
@@ -80,22 +87,7 @@ const Contact: React.FC = () => {
           />
         </div>
 
-        <div className="input-row">
-          <FormInput
-            form={form}
-            name="companyName"
-            className={styles.flexGrow}
-            component={
-              <Input
-                inputType={InputTypes.INPUT}
-                label="Company"
-                attributes={{ maxLength: 100 }}
-              />
-            }
-          />
-        </div>
-
-        <div className="input-row">
+        <div className={styles.inputRow}>
           <FormInput
             form={form}
             name="email"
@@ -108,9 +100,7 @@ const Contact: React.FC = () => {
               />
             }
           />
-        </div>
 
-        <div className="input-row">
           <FormInput
             form={form}
             name="phone"
@@ -125,7 +115,22 @@ const Contact: React.FC = () => {
           />
         </div>
 
-        <div className="input-row">
+        <div className={styles.inputRow}>
+          <FormInput
+            form={form}
+            name="companyName"
+            className={styles.flexGrow}
+            component={
+              <Input
+                inputType={InputTypes.INPUT}
+                label="Company"
+                attributes={{ maxLength: 100 }}
+              />
+            }
+          />
+        </div>
+
+        <div className={styles.inputRow}>
           <FormInput
             form={form}
             name="priority"
@@ -133,33 +138,13 @@ const Contact: React.FC = () => {
             component={
               <>
                 <Input
-                  inputType={InputTypes.INPUT}
-                  label="Low"
-                  attributes={{
-                    name: "priority",
-                    type: "radio",
-                    required: true,
-                    value: "low",
-                  }}
-                />
-                <Input
-                  inputType={InputTypes.INPUT}
-                  label="Medium"
-                  attributes={{
-                    name: "priority",
-                    type: "radio",
-                    required: true,
-                    value: "med",
-                  }}
-                />
-                <Input
-                  inputType={InputTypes.INPUT}
-                  label="High"
-                  attributes={{
-                    name: "priority",
-                    type: "radio",
-                    required: true,
-                    value: "high",
+                  inputType={InputTypes.RADIO}
+                  label="Priority"
+                  radioInputs={{
+                    radios: [
+                      { label: "Low", attributes: { value: "low" } },
+                      { label: "High", attributes: { value: "high" } },
+                    ],
                   }}
                 />
               </>
@@ -167,7 +152,7 @@ const Contact: React.FC = () => {
           />
         </div>
 
-        <div className="input-row">
+        <div className={styles.inputRow}>
           <FormInput
             form={form}
             name="details"
@@ -182,7 +167,7 @@ const Contact: React.FC = () => {
           />
         </div>
 
-        {/* <div className="input-row">
+        {/* <div className={styles.inputRow}>
           <InputWrapper
             inputType={InputTypes.CHECKBOX}
             inputRef={form.ref("priority")}

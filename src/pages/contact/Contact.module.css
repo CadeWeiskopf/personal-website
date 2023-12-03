@@ -13,3 +13,13 @@ form {
   flex-wrap: wrap;
   gap: 0.5em;
 }
+
+.topHeaderWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.topHeaderWrapperImg {
+  background-color: var(--text-primary);
+  width: 150px;
+  height: 150px;
+}
