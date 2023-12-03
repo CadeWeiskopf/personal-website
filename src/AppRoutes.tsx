@@ -17,12 +17,12 @@ const routes: IRoute[] = [
   {
     path: "/contact",
     component: <Contact />,
-    navLabel: "Get in touch",
+    navLabel: "Contact",
   },
   {
     path: "/chat",
     component: <Chat />,
-    navLabel: "Chat with community",
+    navLabel: "Free Chat",
   },
 ];
 export default routes;
