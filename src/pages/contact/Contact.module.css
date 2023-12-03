@@ -26,9 +26,14 @@ form {
   border-radius: 50%;
   overflow: hidden;
   min-width: 150px;
+  height: 150px;
 }
 .topHeaderWrapperImg {
   background-color: var(--text-primary);
   width: 150px;
   height: 150px;
+}
+.contactDetailLine {
+  display: "flex";
+  align-items: "center";
 }

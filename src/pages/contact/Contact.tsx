@@ -49,10 +49,11 @@ const Contact: React.FC = () => {
         <div>
           <h1>Contact</h1>
           <div>
-            Please fill out the form a prompt response, or if preferred contact
-            directly via email!
+            Please fill out the form for a prompt response or contact via email.
           </div>
-          <div>{emailIcon} email</div>
+          <div className={styles.contactDetailLine}>
+            {emailIcon} <a href="mailto:me@cadew.dev">me@cadew.dev</a>
+          </div>
         </div>
         <div className={styles.topHeaderWrapperImgWrapper}>
           <img
