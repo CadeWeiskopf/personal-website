@@ -131,50 +131,38 @@ const Contact: React.FC = () => {
             name="priority"
             className={styles.flexGrow}
             component={
-              <Input
-                inputType={InputTypes.INPUT}
-                label="Low"
-                attributes={{
-                  name: "priority",
-                  type: "radio",
-                  required: true,
-                  value: "low",
-                }}
-              />
-            }
-          />
-          <FormInput
-            form={form}
-            name="priority"
-            className={styles.flexGrow}
-            component={
-              <Input
-                inputType={InputTypes.INPUT}
-                label="Medium"
-                attributes={{
-                  name: "priority",
-                  type: "radio",
-                  required: true,
-                  value: "med",
-                }}
-              />
-            }
-          />
-          <FormInput
-            form={form}
-            name="priority"
-            className={styles.flexGrow}
-            component={
-              <Input
-                inputType={InputTypes.INPUT}
-                label="High"
-                attributes={{
-                  name: "priority",
-                  type: "radio",
-                  required: true,
-                  value: "high",
-                }}
-              />
+              <>
+                <Input
+                  inputType={InputTypes.INPUT}
+                  label="Low"
+                  attributes={{
+                    name: "priority",
+                    type: "radio",
+                    required: true,
+                    value: "low",
+                  }}
+                />
+                <Input
+                  inputType={InputTypes.INPUT}
+                  label="Medium"
+                  attributes={{
+                    name: "priority",
+                    type: "radio",
+                    required: true,
+                    value: "med",
+                  }}
+                />
+                <Input
+                  inputType={InputTypes.INPUT}
+                  label="High"
+                  attributes={{
+                    name: "priority",
+                    type: "radio",
+                    required: true,
+                    value: "high",
+                  }}
+                />
+              </>
             }
           />
         </div>
