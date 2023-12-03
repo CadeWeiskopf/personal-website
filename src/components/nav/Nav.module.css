@@ -25,7 +25,7 @@
 }
 .listWrapperLink:hover {
   font-size: 20px;
-  transition: 1s;
+  transition: 0.3s;
 }
 .buttonWrapper:hover .listWrapperLink,
 .listWrapper:hover .listWrapperLink,
