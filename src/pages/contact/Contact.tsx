@@ -7,6 +7,8 @@ import {
   Input,
   InputTypes,
 } from "../../components/cw-inputs/GenericInputWrapper";
+import emailIcon from "../../components/icons/email-icon";
+import phoneIcon from "../../components/icons/phone-icon";
 
 const Contact: React.FC = () => {
   const { setShowHeader } = useContext(AppContext);
@@ -44,14 +46,23 @@ const Contact: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.topHeaderWrapper}>
-        <h1>Contact</h1>
-        <img
-          className={styles.topHeaderWrapperImg}
-          src="https://i.ibb.co/M5vZxBt/Untitled.png"
-          alt="Untitled"
-        />
+        <div>
+          <h1>Contact</h1>
+          <div>
+            Please fill out the form a prompt response, or if preferred contact
+            directly via email!
+          </div>
+          <div>{emailIcon} email</div>
+        </div>
+        <div className={styles.topHeaderWrapperImgWrapper}>
+          <img
+            className={styles.topHeaderWrapperImg}
+            src="https://i.ibb.co/M5vZxBt/Untitled.png"
+            alt="Untitled"
+          />
+        </div>
       </div>
-      <h2>Fill out details</h2>
+      {/* <h2>Fill out details</h2> */}
       <form onSubmit={handleSubmit}>
         <div className={styles.inputRow}>
           <FormInput
@@ -141,6 +152,7 @@ const Contact: React.FC = () => {
                   inputType={InputTypes.RADIO}
                   label="Priority"
                   radioInputs={{
+                    required: true,
                     radios: [
                       { label: "Low", attributes: { value: "low" } },
                       { label: "High", attributes: { value: "high" } },

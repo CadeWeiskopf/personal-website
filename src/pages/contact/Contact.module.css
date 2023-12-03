@@ -17,6 +17,15 @@ form {
 .topHeaderWrapper {
   display: flex;
   justify-content: space-between;
+  margin: 2rem 0;
+}
+.topHeaderWrapper h1 {
+  margin: 0;
+}
+.topHeaderWrapperImgWrapper {
+  border-radius: 50%;
+  overflow: hidden;
+  min-width: 150px;
 }
 .topHeaderWrapperImg {
   background-color: var(--text-primary);
