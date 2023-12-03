@@ -46,13 +46,18 @@ const Contact: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.topHeaderWrapper}>
-        <div>
+        <div className={styles.contactDetailsWrapper}>
           <h1>Contact</h1>
           <div>
             Please fill out the form for a prompt response or contact via email.
           </div>
           <div className={styles.contactDetailLine}>
-            {emailIcon} <a href="mailto:me@cadew.dev">me@cadew.dev</a>
+            <a
+              href="mailto:me@cadew.dev"
+              className={styles.contactDetailLine}
+            >
+              {emailIcon}me@cadew.dev
+            </a>
           </div>
         </div>
         <div className={styles.topHeaderWrapperImgWrapper}>

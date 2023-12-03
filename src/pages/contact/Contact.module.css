@@ -33,7 +33,14 @@ form {
   width: 150px;
   height: 150px;
 }
+.contactDetailsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
 .contactDetailLine {
-  display: "flex";
-  align-items: "center";
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+  color: var(--text-primary);
 }

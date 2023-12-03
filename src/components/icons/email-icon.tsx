@@ -24,7 +24,7 @@ export default (
     <path
       fill="none"
       stroke="teal"
-      stroke-width="20"
+      strokeWidth="20"
       d="M434 128L269 292c-7 8-19 8-26 0L78 128m0 256l129-128m227 128L305 256"
     />
   </svg>
