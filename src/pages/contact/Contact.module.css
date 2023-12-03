@@ -44,3 +44,7 @@ form {
   gap: 0.2em;
   color: var(--text-primary);
 }
+.contactDetailLine a:hover {
+  text-decoration: underline #ff7373;
+  transition: 0.3s;
+}

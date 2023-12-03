@@ -161,6 +161,7 @@ const Contact: React.FC = () => {
                     required: true,
                     radios: [
                       { label: "Low", attributes: { value: "low" } },
+                      { label: "Medium", attributes: { value: "medium" } },
                       { label: "High", attributes: { value: "high" } },
                     ],
                   }}
