@@ -43,11 +43,15 @@
   transition: 0.6s;
 }
 
+.iconsHeaderWrapper {
+  display: flex;
+}
 .iconsWrapper {
   margin-top: 0.4em;
   display: flex;
   gap: 0em;
   transition: 0.6s;
+  width: max-content;
 }
 .iconsWrapper:hover {
   gap: 1em;

@@ -63,18 +63,20 @@ const TechStackIcons: React.FC<{ justifyContent: AlignItems }> = ({
 }) => {
   return (
     <div
-      className={styles.iconsWrapper}
+      className={styles.iconsHeaderWrapper}
       style={{ justifyContent }}
     >
-      {pyIcon}
-      {nodeIcon}
-      {reactIcon}
-      {angularIcon}
-      {dockerIcon}
-      {azureIcon}
-      {awsIcon}
-      {netsuiteIcon}
-      {postgresIcon}
+      <div className={styles.iconsWrapper}>
+        {pyIcon}
+        {nodeIcon}
+        {reactIcon}
+        {angularIcon}
+        {dockerIcon}
+        {azureIcon}
+        {awsIcon}
+        {netsuiteIcon}
+        {postgresIcon}
+      </div>
     </div>
   );
 };
