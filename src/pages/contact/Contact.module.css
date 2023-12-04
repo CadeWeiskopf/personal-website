@@ -45,6 +45,5 @@ form {
   color: var(--text-primary);
 }
 .contactDetailLine a:hover {
-  text-decoration: underline green;
   transition: 0.3s;
 }
