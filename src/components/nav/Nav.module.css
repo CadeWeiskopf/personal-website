@@ -13,10 +13,12 @@
   box-shadow: 0px 0px 100px 2px rgba(255, 255, 255, 0.5);
   border-radius: 4px;
 }
+/* .listWrapper:hover, */
 .buttonWrapper:hover + .listWrapper,
-.listWrapper.active {
+.listWrapper:hover {
   transition: 0.6s;
-  width: 400px;
+  transform: translateX(0px);
+  /* width: 200px; */
 }
 .listWrapperLink {
   transform: translateX(-200px);
@@ -35,13 +37,14 @@
 .listWrapper {
   padding: 0;
   z-index: 2;
-  width: 250px;
+  /* width: 250px; */
   height: 100%;
   background-color: var(--background-primary);
   position: absolute;
-  width: 0px;
+  width: 200px;
   z-index: 10;
-  transition: 0.6s;
+  transform: translateX(-200px);
+  transition: 0.6s transform;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,7 +53,7 @@
 }
 .listWrapper:hover,
 .buttonWrapper:hover + .listWrapper {
-  width: 200px;
+  /* width: 200px; */
   padding: 2em;
   transition: 0.6s;
   box-sizing: border-box;

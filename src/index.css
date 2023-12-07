@@ -14,6 +14,14 @@ code {
 
 :root {
   --background-primary: #00050a;
-  --text-primary: #e2e2e2;
-  --text-secondary: #afafaf;
+  --text-primary: #fffcfc;
+  --text-secondary: #a4a4a4;
+  --error-primary: #ff7373;
+}
+
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 30px;
 }

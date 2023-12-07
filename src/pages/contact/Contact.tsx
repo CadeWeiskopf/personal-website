@@ -68,7 +68,10 @@ const Contact: React.FC = () => {
           />
         </div>
       </div>
-      {/* <h2>Fill out details</h2> */}
+      <h2>Fill out details</h2>
+      <div>
+        <small>* fields are required</small>
+      </div>
       <form onSubmit={handleSubmit}>
         <div className={styles.inputRow}>
           <FormInput
@@ -198,6 +201,8 @@ const Contact: React.FC = () => {
         </div> */}
         <button type="submit">Submit</button>
       </form>
+      <br />
+      <br />
     </div>
   );
 };
