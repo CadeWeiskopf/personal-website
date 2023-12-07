@@ -170,9 +170,21 @@ const Contact: React.FC = () => {
                   radioInputs={{
                     required: true,
                     radios: [
-                      { label: "Low", attributes: { value: "low" } },
-                      { label: "Medium", attributes: { value: "medium" } },
-                      { label: "High", attributes: { value: "high" } },
+                      {
+                        key: "priority-low",
+                        label: "Low",
+                        attributes: { value: "low" },
+                      },
+                      {
+                        key: "priority-medium",
+                        label: "Medium",
+                        attributes: { value: "medium" },
+                      },
+                      {
+                        key: "priority-high",
+                        label: "High",
+                        attributes: { value: "high" },
+                      },
                     ],
                   }}
                 />
