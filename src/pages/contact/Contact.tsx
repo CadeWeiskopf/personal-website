@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../AppContext";
 import styles from "./Contact.module.css";
 import { EmailData, isEmailData } from "../../data/shared-types/types";
@@ -8,9 +8,9 @@ import {
   InputTypes,
 } from "../../components/cw-inputs/GenericInputWrapper";
 import emailIcon from "../../components/icons/email-icon";
-import phoneIcon from "../../components/icons/phone-icon";
 
 const Contact: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const { setShowHeader } = useContext(AppContext);
   useEffect(() => {
     setShowHeader(true);
@@ -24,23 +24,29 @@ const Contact: React.FC = () => {
       throw Error("missing env var REACT_APP_EMAIL_SERVICE_URL");
     }
 
-    const body: EmailData = form.data(isEmailData);
-    console.log(body);
-
-    const response = await fetch(
-      `${process.env.REACT_APP_EMAIL_SERVICE_URL}/email`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
+    try {
+      setIsLoading(true);
+      const body: EmailData = form.data(isEmailData);
+      console.log(body);
+      const response = await fetch(
+        `${process.env.REACT_APP_EMAIL_SERVICE_URL}/email`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        }
+      );
+      if (!response.ok || response.status !== 200) {
+        setIsLoading(false);
+        throw Error("bad response");
       }
-    );
-    if (!response.ok || response.status !== 200) {
-      throw Error("bad response");
+      const responseData = await response.json();
+      console.log(responseData);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
     }
-
-    const responseData = await response.json();
-    console.log(responseData);
   };
 
   return (
@@ -200,7 +206,12 @@ const Contact: React.FC = () => {
             }}
           />
         </div> */}
-        <button type="submit">Submit</button>
+        <button
+          type="submit"
+          disabled={isLoading}
+        >
+          {isLoading ? "LOADING" : "SUBMIT"}
+        </button>
       </form>
       <br />
       <br />
