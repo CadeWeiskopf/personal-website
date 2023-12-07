@@ -3,10 +3,11 @@
 .flexGrow {
   flex-grow: 1;
 }
-form {
+.wrapper form {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+  box-shadow: 0px 0px 45px 1px rgba(255, 255, 255, 0.3);
 }
 .inputRow {
   display: flex;
@@ -27,6 +28,7 @@ form {
   overflow: hidden;
   min-width: 150px;
   height: 150px;
+  /* box-shadow: 0px 0px 50px 1px rgba(255, 255, 255, 0.3); */
 }
 .topHeaderWrapperImg {
   background-color: var(--text-primary);

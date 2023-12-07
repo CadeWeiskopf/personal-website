@@ -63,8 +63,9 @@ const Contact: React.FC = () => {
         <div className={styles.topHeaderWrapperImgWrapper}>
           <img
             className={styles.topHeaderWrapperImg}
-            src="https://i.ibb.co/M5vZxBt/Untitled.png"
-            alt="Untitled"
+            src="https://i.ibb.co/yBYYwf3/1677798156440.jpg"
+            alt="Cade Weiskopf"
+            loading="lazy"
           />
         </div>
       </div>
