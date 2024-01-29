@@ -17,6 +17,7 @@ const App: React.FC = () => {
           <Header
             alignItems={AlignItems.FlexEnd}
             initAnim={false}
+            smallText={true}
           />
         )}
         <main>

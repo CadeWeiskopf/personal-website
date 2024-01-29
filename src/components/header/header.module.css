@@ -1,3 +1,7 @@
+:root {
+  --name-first-letter-size: 4rem;
+  --name-letters-size: 2rem;
+}
 .wrapper {
   padding-top: "0.5rem";
   padding-right: "0.5rem";
@@ -27,9 +31,10 @@
 }
 
 .name {
+  font-size: var(--name-letters-size);
 }
 .name::first-letter {
-  font-size: 2rem;
+  font-size: var(--name-first-letter-size);
 }
 
 .subtitleWrapper {

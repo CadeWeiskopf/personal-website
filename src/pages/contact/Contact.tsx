@@ -53,9 +53,15 @@ const Contact: React.FC = () => {
     <div className={styles.wrapper}>
       <div className={styles.topHeaderWrapper}>
         <div className={styles.contactDetailsWrapper}>
-          <h1>Contact</h1>
+          <h1>Contact Me</h1>
           <div>
-            Please fill out the form for a prompt response or contact via email.
+            Hello, my name is Cade Weiskopf. I provide an array of software
+            services from consultation to implementation. Feel free to use this
+            form or email me directly and I will respond promptly.
+            <br />
+            <br />I look forward to hearing from you and hope to work together
+            soon!
+            <br />
           </div>
           <div className={styles.contactDetailLine}>
             <a
@@ -75,7 +81,7 @@ const Contact: React.FC = () => {
           />
         </div>
       </div>
-      <h2>Fill out details</h2>
+      {/* <h2>Fill out details</h2> */}
       <div>
         <small>* fields are required</small>
       </div>

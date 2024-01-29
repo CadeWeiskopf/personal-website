@@ -19,6 +19,7 @@
   display: flex;
   justify-content: space-between;
   margin: 2rem 0;
+  gap: 1em;
 }
 .topHeaderWrapper h1 {
   margin: 0;
@@ -45,6 +46,7 @@
   align-items: center;
   gap: 0.2em;
   color: var(--text-primary);
+  padding-top: 0.5em;
 }
 .contactDetailLine a:hover {
   transition: 0.3s;

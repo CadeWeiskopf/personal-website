@@ -9,6 +9,7 @@ import postgresIcon from "../../components/icons/postgres-icon";
 import nodeIcon from "../../components/icons/node-icon";
 import pyIcon from "../../components/icons/py-icon";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export enum AlignItems {
   FlexStart = "flex-start",
@@ -37,7 +38,10 @@ const NameAndTitle: React.FC<{
   }, [initAnim]);
 
   return (
-    <>
+    <Link
+      to={"/contact"}
+      style={{ all: "unset" }}
+    >
       <div
         className={styles.nameAndTitleWrapper}
         style={{ alignItems }}
@@ -51,10 +55,10 @@ const NameAndTitle: React.FC<{
           <div className={styles.name}>Weiskopf</div>
         </div>
         <div className={styles.subtitleWrapper}>
-          <div className={styles.subtitle}>&lt;Software Engineer&gt;</div>
+          <div className={styles.subtitle}>Software Engineer</div>
         </div>
       </div>
-    </>
+    </Link>
   );
 };
 
@@ -62,29 +66,48 @@ const TechStackIcons: React.FC<{ justifyContent: AlignItems }> = ({
   justifyContent,
 }) => {
   return (
-    <div
-      className={styles.iconsHeaderWrapper}
-      style={{ justifyContent }}
+    <Link
+      to={"/contact"}
+      style={{ all: "unset" }}
     >
-      <div className={styles.iconsWrapper}>
-        {pyIcon}
-        {nodeIcon}
-        {reactIcon}
-        {angularIcon}
-        {dockerIcon}
-        {azureIcon}
-        {awsIcon}
-        {netsuiteIcon}
-        {postgresIcon}
+      <div
+        className={styles.iconsHeaderWrapper}
+        style={{ justifyContent }}
+      >
+        <div className={styles.iconsWrapper}>
+          {pyIcon}
+          {nodeIcon}
+          {reactIcon}
+          {angularIcon}
+          {dockerIcon}
+          {azureIcon}
+          {awsIcon}
+          {netsuiteIcon}
+          {postgresIcon}
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
 export const Header: React.FC<{
   alignItems: AlignItems;
   initAnim: boolean;
-}> = ({ alignItems, initAnim }) => {
+  smallText: boolean;
+}> = ({ alignItems, initAnim, smallText }) => {
+  if (smallText) {
+    document.documentElement.style.setProperty("--name-letters-size", "1rem");
+    document.documentElement.style.setProperty(
+      "--name-first-letter-size",
+      "2rem"
+    );
+  } else {
+    document.documentElement.style.setProperty("--name-letters-size", "2rem");
+    document.documentElement.style.setProperty(
+      "--name-first-letter-size",
+      "4rem"
+    );
+  }
   return (
     <header className={styles.wrapper}>
       <NameAndTitle

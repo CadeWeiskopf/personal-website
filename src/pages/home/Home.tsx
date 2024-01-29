@@ -16,6 +16,7 @@ const Home: React.FC = () => {
         <Header
           alignItems={AlignItems.Center}
           initAnim={true}
+          smallText={false}
         />
         <br />
         <div className={styles.quoteAndAuthorWrapper}>
