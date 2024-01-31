@@ -47,7 +47,6 @@ const SlideToggle: React.FC = () => {
         <input
           type="checkbox"
           className={styles.slideToggleInput}
-          checked={isChecked}
           onInput={handleToggle}
           id={inputId}
         />
