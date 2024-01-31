@@ -1,13 +1,4 @@
 import styles from "./header.module.css";
-import reactIcon from "../../components/icons/react-icon";
-import dockerIcon from "../../components/icons/docker-icon";
-import angularIcon from "../../components/icons/angular-icon";
-import azureIcon from "../../components/icons/azure-icon";
-import awsIcon from "../../components/icons/aws-icon";
-import netsuiteIcon from "../../components/icons/netsuite-icon";
-import postgresIcon from "../../components/icons/postgres-icon";
-import nodeIcon from "../../components/icons/node-icon";
-import pyIcon from "../../components/icons/py-icon";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -67,34 +58,6 @@ const NameAndTitle: React.FC<{
   );
 };
 
-const TechStackIcons: React.FC<{ justifyContent: AlignItems }> = ({
-  justifyContent,
-}) => {
-  return (
-    <Link
-      to={"/contact"}
-      style={{ all: "unset" }}
-    >
-      <div
-        className={styles.iconsHeaderWrapper}
-        style={{ justifyContent }}
-      >
-        <div className={styles.iconsWrapper}>
-          {pyIcon}
-          {nodeIcon}
-          {reactIcon}
-          {angularIcon}
-          {dockerIcon}
-          {azureIcon}
-          {awsIcon}
-          {netsuiteIcon}
-          {postgresIcon}
-        </div>
-      </div>
-    </Link>
-  );
-};
-
 export const Header: React.FC<{
   alignItems: AlignItems;
   initAnim: boolean;
@@ -119,7 +82,6 @@ export const Header: React.FC<{
         alignItems={alignItems}
         initAnim={initAnim}
       />
-      {/* <TechStackIcons justifyContent={alignItems} /> */}
     </header>
   );
 };

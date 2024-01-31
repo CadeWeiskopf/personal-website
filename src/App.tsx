@@ -14,11 +14,13 @@ const App: React.FC = () => {
       <BrowserRouter>
         <Nav />
         {showHeader && (
-          <Header
-            alignItems={AlignItems.FlexEnd}
-            initAnim={false}
-            smallText={true}
-          />
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Header
+              alignItems={AlignItems.FlexEnd}
+              initAnim={false}
+              smallText={true}
+            />
+          </div>
         )}
         <main>
           <div className="main-wrapper">

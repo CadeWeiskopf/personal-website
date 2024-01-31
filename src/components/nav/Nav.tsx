@@ -3,6 +3,7 @@ import compassIcon from "../icons/compass-icon";
 import { Link } from "react-router-dom";
 import { createRef } from "react";
 import routes from "../../AppRoutes";
+import SlideToggle from "../slide-toggle/SlideToggle";
 
 const navListRef = createRef<HTMLDivElement>();
 
@@ -49,6 +50,9 @@ export const NavList: React.FC = () => {
           </Link>
         );
       })}
+      <div className={styles.listWrapperLink}>
+        <SlideToggle />
+      </div>
     </nav>
   );
 };

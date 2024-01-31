@@ -11,7 +11,7 @@ export default (
       width="512"
       height="512"
       rx="15%"
-      fill="teal"
+      fill="transparent"
     />
     <rect
       width="356"
