@@ -38,13 +38,13 @@ const NameAndTitle: React.FC<{
   }, [initAnim]);
 
   return (
-    <Link
-      to={"/contact"}
-      style={{ all: "unset" }}
+    <div
+      className={styles.nameAndTitleWrapper}
+      style={{ alignItems }}
     >
-      <div
-        className={styles.nameAndTitleWrapper}
-        style={{ alignItems }}
+      <Link
+        to={"/contact"}
+        style={{ all: "unset" }}
       >
         <div
           className={`${styles.nameWrapper} ${
@@ -54,11 +54,16 @@ const NameAndTitle: React.FC<{
           <div className={styles.name}>Cade</div>
           <div className={styles.name}>Weiskopf</div>
         </div>
+      </Link>
+      <Link
+        to={"/about"}
+        style={{ all: "unset" }}
+      >
         <div className={styles.subtitleWrapper}>
           <div className={styles.subtitle}>Software Engineer</div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 
@@ -114,7 +119,7 @@ export const Header: React.FC<{
         alignItems={alignItems}
         initAnim={initAnim}
       />
-      <TechStackIcons justifyContent={alignItems} />
+      {/* <TechStackIcons justifyContent={alignItems} /> */}
     </header>
   );
 };

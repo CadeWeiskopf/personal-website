@@ -3,9 +3,8 @@
   --name-letters-size: 2rem;
 }
 .wrapper {
-  padding-top: "0.5rem";
-  padding-right: "0.5rem";
-  height: "auto";
+  padding-top: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .nameAndTitleWrapper {

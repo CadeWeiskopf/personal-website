@@ -14,7 +14,9 @@ code {
 
 :root {
   --background-primary: #00050a;
+  /* --background-primary: #fffcfc; */
   --text-primary: #fffcfc;
+  /* --text-primary: #00050a; */
   --text-secondary: #a4a4a4;
   --error-primary: #ff7373;
 }

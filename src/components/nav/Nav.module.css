@@ -40,14 +40,14 @@
   /* width: 250px; */
   height: 100%;
   background-color: var(--background-primary);
-  position: absolute;
+  position: fixed;
   width: 200px;
   z-index: 10;
   transform: translateX(-200px);
   transition: 0.6s transform;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   gap: 1em;
   letter-spacing: 0.2em;
 }

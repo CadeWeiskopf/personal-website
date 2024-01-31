@@ -56,3 +56,21 @@ form {
   /* box-shadow: 0.4em 0.4em 2px 2px rgba(255, 255, 255, 0.2),
     -0.4em -0.4em 2px 2px rgba(255, 255, 255, 0.2); */
 }
+
+button[type="submit"] {
+  padding: 1.5em;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid var(--text-primary);
+  color: var(--text-primary);
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  border-radius: 4px;
+}
+button[type="submit"]:hover {
+  background-color: var(--text-primary);
+  color: var(--background-primary);
+}
