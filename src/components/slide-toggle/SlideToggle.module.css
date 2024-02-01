@@ -2,15 +2,22 @@
   position: relative;
   width: 32px;
   height: 16px;
-  background-color: gray;
+  background: gray;
   border-radius: 3em;
   transition: 0.3s;
 }
 .wrapper[data-color-display="light"] {
-  background-color: yellow;
+  background: linear-gradient(
+    to right,
+    #ff6b6b,
+    #ffd166,
+    #74b9ff,
+    #55e6c1,
+    #81ecec
+  );
 }
 .wrapper[data-color-display="dark"] {
-  background-color: blue;
+  background: linear-gradient(to right, #141414, #1a1a1a, #2c3e50);
 }
 
 .slideToggleCircle {

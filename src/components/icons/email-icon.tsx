@@ -18,14 +18,14 @@ export default (
       height="256"
       x="78"
       y="128"
-      fill="#ffffff"
       rx="8%"
+      data-email-svg="true"
     />
     <path
       fill="none"
-      stroke="teal"
       strokeWidth="20"
       d="M434 128L269 292c-7 8-19 8-26 0L78 128m0 256l129-128m227 128L305 256"
+      data-email-svg="true"
     />
   </svg>
 );

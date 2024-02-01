@@ -20,3 +20,10 @@ main {
   width: 100%;
   max-width: 750px;
 }
+
+rect[data-email-svg="true"] {
+  fill: var(--text-primary);
+}
+path[data-email-svg="true"] {
+  stroke: var(--background-primary);
+}
