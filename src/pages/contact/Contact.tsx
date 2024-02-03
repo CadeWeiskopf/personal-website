@@ -224,12 +224,7 @@ const Contact: React.FC = () => {
             }}
           />
         </div> */}
-        <button
-          type="submit"
-          disabled={isLoading}
-        >
-          {isLoading ? "LOADING" : "SUBMIT"}
-        </button>
+        {isLoading ? "LOADING" : <button type="submit">SUBMIT</button>}
       </form>
       <br />
       <br />

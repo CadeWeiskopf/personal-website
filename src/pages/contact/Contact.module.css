@@ -18,7 +18,7 @@
 .topHeaderWrapper {
   display: flex;
   justify-content: space-between;
-  margin: 2rem 0;
+  padding: 2em 0.5em;
   gap: 1em;
 }
 .topHeaderWrapper h1 {

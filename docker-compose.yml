@@ -6,6 +6,6 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      SERVER_NAME: cadew.dev
+      DEV_SERVER_NAME: localhost:8888
       SSL_CERTIFICATE: /etc/nginx/ssl/cadew.dev.crt
       SSL_CERTIFICATE_KEY: /etc/nginx/ssl/cadew.dev.key
