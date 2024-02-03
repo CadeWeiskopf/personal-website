@@ -37,7 +37,7 @@
   width: 150px;
   height: 150px;
 }
-@media screen and (max-width: 426px) {
+@media screen and (max-width: 500px) {
   .topHeaderWrapper {
     flex-direction: column;
   }
