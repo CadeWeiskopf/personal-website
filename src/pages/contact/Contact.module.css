@@ -17,6 +17,7 @@
 
 .topHeaderWrapper {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
   padding: 2em 0.5em;
   gap: 1em;
@@ -35,6 +36,21 @@
   background-color: var(--text-primary);
   width: 150px;
   height: 150px;
+}
+@media screen and (max-width: 426px) {
+  .topHeaderWrapper {
+    flex-direction: column;
+  }
+  .topHeaderWrapperImgWrapper {
+    display: flex;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+  }
+  .topHeaderWrapperImg {
+    border-radius: 50%;
+  }
 }
 .contactDetailsWrapper {
   display: flex;
@@ -55,6 +71,7 @@
 form {
   /* box-shadow: 0.4em 0.4em 2px 2px rgba(255, 255, 255, 0.2),
     -0.4em -0.4em 2px 2px rgba(255, 255, 255, 0.2); */
+  padding: 0 0.5em;
 }
 
 button[type="submit"] {

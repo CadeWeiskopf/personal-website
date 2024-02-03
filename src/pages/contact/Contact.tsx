@@ -52,6 +52,14 @@ const Contact: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.topHeaderWrapper}>
+        <div className={styles.topHeaderWrapperImgWrapper}>
+          <img
+            className={styles.topHeaderWrapperImg}
+            src="https://i.ibb.co/yBYYwf3/1677798156440.jpg"
+            alt="Cade Weiskopf"
+            loading="lazy"
+          />
+        </div>
         <div className={styles.contactDetailsWrapper}>
           <h1>Contact Me</h1>
           <div>
@@ -72,17 +80,9 @@ const Contact: React.FC = () => {
             </a>
           </div>
         </div>
-        <div className={styles.topHeaderWrapperImgWrapper}>
-          <img
-            className={styles.topHeaderWrapperImg}
-            src="https://i.ibb.co/yBYYwf3/1677798156440.jpg"
-            alt="Cade Weiskopf"
-            loading="lazy"
-          />
-        </div>
       </div>
       {/* <h2>Fill out details</h2> */}
-      <div>
+      <div style={{ padding: "0 0.5em" }}>
         <small>* fields are required</small>
       </div>
       <form onSubmit={handleSubmit}>
