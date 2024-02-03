@@ -41,6 +41,13 @@
   .topHeaderWrapper {
     flex-direction: column;
   }
+  .topHeaderWrapper h1 {
+    text-align: center;
+  }
+  .topHeaderText {
+    padding: 0 1em;
+    text-align: center;
+  }
   .topHeaderWrapperImgWrapper {
     display: flex;
     border-radius: 100%;
@@ -50,6 +57,9 @@
   }
   .topHeaderWrapperImg {
     border-radius: 50%;
+  }
+  .contactDetailLine {
+    justify-content: center;
   }
 }
 .contactDetailsWrapper {

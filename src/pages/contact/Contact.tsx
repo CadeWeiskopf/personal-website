@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
         </div>
         <div className={styles.contactDetailsWrapper}>
           <h1>Contact Me</h1>
-          <div>
+          <div className={styles.topHeaderText}>
             Hello, my name is Cade Weiskopf. I provide an array of software
             services from consultation to implementation. Feel free to use this
             form or email me directly and I will respond promptly.
