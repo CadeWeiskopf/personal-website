@@ -86,135 +86,136 @@ const Contact: React.FC = () => {
         <small>* fields are required</small>
       </div>
       <form onSubmit={handleSubmit}>
-        <div className={styles.inputRow}>
-          <FormInput
-            form={form}
-            name="firstName"
-            className={styles.flexGrow}
-            component={
-              <Input
-                inputType={InputTypes.INPUT}
-                label="First"
-                attributes={{
-                  maxLength: 100,
-                  required: true,
-                }}
-              />
-            }
-          />
-
-          <FormInput
-            form={form}
-            name="lastName"
-            className={styles.flexGrow}
-            component={
-              <Input
-                inputType={InputTypes.INPUT}
-                label="Last"
-                attributes={{
-                  maxLength: 100,
-                  required: true,
-                }}
-              />
-            }
-          />
-        </div>
-
-        <div className={styles.inputRow}>
-          <FormInput
-            form={form}
-            name="email"
-            className={styles.flexGrow}
-            component={
-              <Input
-                inputType={InputTypes.INPUT}
-                label="Email"
-                attributes={{ type: "email", maxLength: 100, required: true }}
-              />
-            }
-          />
-
-          <FormInput
-            form={form}
-            name="phone"
-            className={styles.flexGrow}
-            component={
-              <Input
-                inputType={InputTypes.INPUT}
-                label="Phone"
-                attributes={{ type: "tel", maxLength: 22, pattern: "[0-9]+" }}
-              />
-            }
-          />
-        </div>
-
-        <div className={styles.inputRow}>
-          <FormInput
-            form={form}
-            name="companyName"
-            className={styles.flexGrow}
-            component={
-              <Input
-                inputType={InputTypes.INPUT}
-                label="Company"
-                attributes={{ maxLength: 100 }}
-              />
-            }
-          />
-        </div>
-
-        <div className={styles.inputRow}>
-          <FormInput
-            form={form}
-            name="priority"
-            className={styles.flexGrow}
-            component={
-              <>
+        <div className={styles.formShadowWrapper}>
+          <div className={styles.inputRow}>
+            <FormInput
+              form={form}
+              name="firstName"
+              className={styles.flexGrow}
+              component={
                 <Input
-                  inputType={InputTypes.RADIO}
-                  label="Priority"
-                  radioInputs={{
+                  inputType={InputTypes.INPUT}
+                  label="First"
+                  attributes={{
+                    maxLength: 100,
                     required: true,
-                    radios: [
-                      {
-                        key: "priority-low",
-                        label: "Low",
-                        attributes: { value: "low" },
-                      },
-                      {
-                        key: "priority-medium",
-                        label: "Medium",
-                        attributes: { value: "medium" },
-                      },
-                      {
-                        key: "priority-high",
-                        label: "High",
-                        attributes: { value: "high" },
-                      },
-                    ],
                   }}
                 />
-              </>
-            }
-          />
-        </div>
+              }
+            />
 
-        <div className={styles.inputRow}>
-          <FormInput
-            form={form}
-            name="details"
-            className={styles.flexGrow}
-            component={
-              <Input
-                inputType={InputTypes.TEXTAREA}
-                label="Details"
-                attributes={{ maxLength: 1000, rows: 5 }}
-              />
-            }
-          />
-        </div>
+            <FormInput
+              form={form}
+              name="lastName"
+              className={styles.flexGrow}
+              component={
+                <Input
+                  inputType={InputTypes.INPUT}
+                  label="Last"
+                  attributes={{
+                    maxLength: 100,
+                    required: true,
+                  }}
+                />
+              }
+            />
+          </div>
 
-        {/* <div className={styles.inputRow}>
+          <div className={styles.inputRow}>
+            <FormInput
+              form={form}
+              name="email"
+              className={styles.flexGrow}
+              component={
+                <Input
+                  inputType={InputTypes.INPUT}
+                  label="Email"
+                  attributes={{ type: "email", maxLength: 100, required: true }}
+                />
+              }
+            />
+
+            <FormInput
+              form={form}
+              name="phone"
+              className={styles.flexGrow}
+              component={
+                <Input
+                  inputType={InputTypes.INPUT}
+                  label="Phone"
+                  attributes={{ type: "tel", maxLength: 22, pattern: "[0-9]+" }}
+                />
+              }
+            />
+          </div>
+
+          <div className={styles.inputRow}>
+            <FormInput
+              form={form}
+              name="companyName"
+              className={styles.flexGrow}
+              component={
+                <Input
+                  inputType={InputTypes.INPUT}
+                  label="Company"
+                  attributes={{ maxLength: 100 }}
+                />
+              }
+            />
+          </div>
+
+          <div className={styles.inputRow}>
+            <FormInput
+              form={form}
+              name="priority"
+              className={styles.flexGrow}
+              component={
+                <>
+                  <Input
+                    inputType={InputTypes.RADIO}
+                    label="Priority"
+                    radioInputs={{
+                      required: true,
+                      radios: [
+                        {
+                          key: "priority-low",
+                          label: "Low",
+                          attributes: { value: "low" },
+                        },
+                        {
+                          key: "priority-medium",
+                          label: "Medium",
+                          attributes: { value: "medium" },
+                        },
+                        {
+                          key: "priority-high",
+                          label: "High",
+                          attributes: { value: "high" },
+                        },
+                      ],
+                    }}
+                  />
+                </>
+              }
+            />
+          </div>
+
+          <div className={styles.inputRow}>
+            <FormInput
+              form={form}
+              name="details"
+              className={styles.flexGrow}
+              component={
+                <Input
+                  inputType={InputTypes.TEXTAREA}
+                  label="Details"
+                  attributes={{ maxLength: 1000, rows: 5 }}
+                />
+              }
+            />
+          </div>
+
+          {/* <div className={styles.inputRow}>
           <InputWrapper
             inputType={InputTypes.CHECKBOX}
             inputRef={form.ref("priority")}
@@ -224,7 +225,8 @@ const Contact: React.FC = () => {
             }}
           />
         </div> */}
-        {isLoading ? "LOADING" : <button type="submit">SUBMIT</button>}
+          {isLoading ? "LOADING" : <button type="submit">SUBMIT</button>}
+        </div>
       </form>
       <br />
       <br />
