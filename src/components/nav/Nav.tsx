@@ -27,6 +27,9 @@ export const NavButton: React.FC = () => {
       className={styles.buttonWrapper}
       onMouseEnter={showNavList}
       onMouseLeave={hideNavList}
+      onClick={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        event.currentTarget.dispatchEvent(new Event("mouseover"));
+      }}
     >
       {compassIcon}
     </div>

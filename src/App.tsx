@@ -5,12 +5,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from "./components/nav/Nav";
 import routes from "./AppRoutes";
 import { AlignItems, Header } from "./components/header/Header";
+import Outerspace from "./components/outerspace/Outerspace";
 
 const App: React.FC = () => {
   const { showHeader } = useContext(AppContext);
 
   return (
     <div className="app">
+      <Outerspace />
       <BrowserRouter>
         <Nav />
         {showHeader && (
