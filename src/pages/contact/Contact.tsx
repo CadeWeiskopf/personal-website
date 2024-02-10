@@ -8,6 +8,7 @@ import {
   InputTypes,
 } from "../../components/cw-inputs/GenericInputWrapper";
 import emailIcon from "../../components/icons/email-icon";
+import Spinner from "./spinner";
 
 const Contact: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -225,7 +226,14 @@ const Contact: React.FC = () => {
             }}
           />
         </div> */}
-          {isLoading ? "LOADING" : <button type="submit">SUBMIT</button>}
+          <button
+            type="submit"
+            disabled={isLoading}
+            style={isLoading ? { cursor: "progress" } : {}}
+          >
+            {isLoading && Spinner}
+            {!isLoading && "SUBMIT"}
+          </button>
         </div>
       </form>
       <br />

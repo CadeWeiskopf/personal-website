@@ -3,23 +3,23 @@ import { AppContext } from "../../AppContext";
 import styles from "./About.module.css";
 
 type ServicesData = {
-  id: number;
+  id: string;
   label: string;
   info: string;
 };
 const data: ServicesData[] = [
   {
-    id: 0,
+    id: "automations",
     label: "Automations",
     info: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam eos alias iste, pariatur id quaerat. Necessitatibus ipsam mollitia vero modi, earum inventore magni, minus aperiam culpa doloribus iure qui dolorem.",
   },
   {
-    id: 1,
+    id: "integrations",
     label: "Integrations",
     info: "",
   },
   {
-    id: 2,
+    id: "apps",
     label: "Applications",
     info: "",
   },
@@ -33,7 +33,7 @@ const About: React.FC = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div>
+      <div className={styles.linksWrapper}>
         {data.map((d) => (
           <a href={`#${d.id}`}>{d.label}</a>
         ))}

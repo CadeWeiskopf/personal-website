@@ -92,7 +92,7 @@ form {
   z-index: 1;
 }
 
-button[type="submit"] {
+.wrapper button[type="submit"] {
   padding: 1.5em;
   font-size: 16px;
   font-weight: bold;
@@ -109,4 +109,11 @@ button[type="submit"] {
 .wrapper button[type="submit"]:hover {
   background-color: var(--text-primary);
   color: var(--background-primary);
+}
+
+.wrapper button[type="submit"] .spinnerCircle {
+  stroke: var(--text-primary);
+}
+.wrapper button[type="submit"]:hover .spinnerCircle {
+  stroke: var(--background-primary);
 }

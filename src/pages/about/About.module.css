@@ -1,2 +1,12 @@
 .wrapper {
+  margin-top: 1rem;
+}
+.linksWrapper {
+  display: flex;
+  gap: 1em;
+}
+.linksWrapper a {
+  all: unset;
+  text-decoration: underline;
+  cursor: pointer;
 }
