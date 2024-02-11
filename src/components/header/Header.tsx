@@ -1,5 +1,5 @@
 import styles from "./header.module.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export enum AlignItems {
@@ -12,21 +12,20 @@ const NameAndTitle: React.FC<{
   alignItems: AlignItems;
   initAnim: boolean;
 }> = ({ alignItems, initAnim }) => {
-  const [initAnimNameAndTitle, setInitAnimNameAndTitle] = useState(initAnim);
+  const [initAnimNameAndTitle] = useState(false);
 
-  useEffect(() => {
-    if (!initAnim) {
-      return;
-    }
-
-    setInitAnimNameAndTitle(true);
-    const disableInitAnimNameAndTitle = setTimeout(() => {
-      setInitAnimNameAndTitle(false);
-    }, 1500);
-    return () => {
-      clearTimeout(disableInitAnimNameAndTitle);
-    };
-  }, [initAnim]);
+  // useEffect(() => {
+  //   if (!initAnim) {
+  //     return;
+  //   }
+  //   setInitAnimNameAndTitle(true);
+  //   const disableInitAnimNameAndTitle = setTimeout(() => {
+  //     setInitAnimNameAndTitle(false);
+  //   }, 1500);
+  //   return () => {
+  //     clearTimeout(disableInitAnimNameAndTitle);
+  //   };
+  // }, [initAnim]);
 
   return (
     <div

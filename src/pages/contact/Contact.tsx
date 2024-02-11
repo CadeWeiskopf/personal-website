@@ -9,6 +9,7 @@ import {
 } from "../../components/cw-inputs/GenericInputWrapper";
 import emailIcon from "../../components/icons/email-icon";
 import Spinner from "./spinner";
+import headshot from "./cwhead.png";
 
 const Contact: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -56,7 +57,7 @@ const Contact: React.FC = () => {
         <div className={styles.topHeaderWrapperImgWrapper}>
           <img
             className={styles.topHeaderWrapperImg}
-            src="https://i.ibb.co/yBYYwf3/1677798156440.jpg"
+            src={headshot}
             alt="Cade Weiskopf"
             loading="lazy"
           />
