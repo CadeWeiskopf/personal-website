@@ -10,6 +10,9 @@
   gap: 0.5em;
 }
 .formShadowWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
   box-shadow: 0px 0px 45px 1px rgba(255, 255, 255, 0.3);
 }
 .inputRow {
@@ -116,4 +119,21 @@ form {
 }
 .wrapper button[type="submit"]:hover .spinnerCircle {
   stroke: var(--background-primary);
+}
+
+.responseWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+.responseMessageWrapper {
+  padding: 1em;
+  border: 1px solid;
+  border-radius: 4px;
+  background: var(--background-primary);
+  z-index: 1;
+  box-shadow: 0px 0px 45px 1px rgba(255, 255, 255, 0.3);
 }

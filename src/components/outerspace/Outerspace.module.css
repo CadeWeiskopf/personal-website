@@ -48,6 +48,7 @@
     -30vw -18vh 1px 1px var(--text-primary),
     25vw 15vh 0px 0px var(--text-primary);
   animation: spacetravel 10s alternate infinite;
+  filter: blur(0.1px);
 }
 @keyframes spacetravel {
   0% {

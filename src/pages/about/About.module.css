@@ -1,9 +1,17 @@
 .wrapper {
   margin-top: 1rem;
 }
+@media screen and (max-width: 426px) {
+  .wrapper h1,
+  .wrapper h2,
+  .wrapper h3 {
+    text-align: center;
+  }
+}
 .linksWrapper {
   display: flex;
   gap: 1em;
+  flex-wrap: wrap;
 }
 .linksWrapper a {
   all: unset;
@@ -14,4 +22,14 @@
 .acCard {
   background: red;
   width: 200px;
+}
+
+.infoWrapper {
+  padding: 1em;
+  border: 1px solid;
+  border-radius: 4px;
+  position: relative;
+  background: var(--background-primary);
+  z-index: 1;
+  box-shadow: 0px 0px 45px 1px rgba(255, 255, 255, 0.3);
 }
