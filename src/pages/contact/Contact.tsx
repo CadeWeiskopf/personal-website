@@ -97,8 +97,8 @@ const Contact: React.FC = () => {
       const responseData = await response.json();
       console.log(responseData);
       setSubmitResponse({
-        isError: true,
-        message: "error",
+        isError: false,
+        message: "",
       });
     } catch (error) {
       console.error(error);

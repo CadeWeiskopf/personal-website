@@ -113,13 +113,15 @@ const About: React.FC = () => {
       </div>
       <br />
       <div>
-        At the core of all software implementations is a strong of understanding
-        of business goals. These services are built to cater to unique
-        requirements and accomodate specific problems. I am well equipped to
-        work with all types of technology, and can define the best stack for a
-        solution when needed. With all my solutions I intend to provide long
-        term stability, scalability, quality documentation, and proper
-        transference through means of UAT (User Acceptance Testing).
+        At the core of all software implementations is a strong understanding of
+        business goals. These services are designed to cater to unique
+        requirements and accommodate specific problems. I am well-equipped to
+        work with various types of technology and can determine the optimal
+        stack for a solution when needed. All solutions are crafted with the
+        goal of ensuring long-term stability, scalability, and security.
+        Additionally, I prioritize providing comprehensive documentation for all
+        aspects and ensure a smooth transition through User Acceptance Testing
+        (UAT).
         <br />
         <br />
         Please reach out if you would like to know more at{" "}
