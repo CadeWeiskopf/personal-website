@@ -114,10 +114,10 @@ const About: React.FC = () => {
       <br />
       <div>
         At the core of all software implementations is a strong understanding of
-        business goals. These services are designed to cater to unique
-        requirements and accommodate specific problems. I am well-equipped to
-        work with various types of technology and can determine the optimal
-        stack for a solution when needed. All solutions are crafted with the
+        business goals. These services cater to unique requirements and
+        accommodate specific problems. I am well-equipped to work with various
+        types of technology and can determine the optimal stack for a solution
+        when building from the ground up. All solutions are crafted with the
         goal of ensuring long-term stability, scalability, and security.
         Additionally, I prioritize providing comprehensive documentation for all
         aspects and ensure a smooth transition through User Acceptance Testing
