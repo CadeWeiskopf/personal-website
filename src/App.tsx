@@ -39,6 +39,9 @@ const App: React.FC = () => {
             </Routes>
           </div>
         </main>
+        <footer style={{ textAlign: "right", paddingRight: "8px" }}>
+          <small>All rights reserved, Cade Weiskopf</small>
+        </footer>
       </BrowserRouter>
     </div>
   );
