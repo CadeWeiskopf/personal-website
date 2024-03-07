@@ -95,7 +95,8 @@ form {
   z-index: 1;
 }
 
-.wrapper button[type="submit"] {
+.wrapper button[type="submit"],
+.responseWrapper button {
   padding: 1.5em;
   font-size: 16px;
   font-weight: bold;
@@ -109,7 +110,8 @@ form {
   border-radius: 4px;
   width: 100%;
 }
-.wrapper button[type="submit"]:hover {
+.wrapper button[type="submit"]:hover,
+.responseWrapper button:hover {
   background-color: var(--text-primary);
   color: var(--background-primary);
 }

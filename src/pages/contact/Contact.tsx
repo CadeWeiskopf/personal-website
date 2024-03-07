@@ -34,9 +34,10 @@ const SubmitResponseMessage: React.FC<
             </>
           ) : (
             <>
-              🙂Thank you for reaching out!
-              <div>
-                You should expect a response to the provide email shortly.
+              <span style={{ fontSize: "3rem" }}>🙂</span>Thank you for reaching
+              out!
+              <div style={{ padding: "0 0.8em" }}>
+                You should expect a response to the provided email shortly.
               </div>
             </>
           )}
@@ -47,12 +48,13 @@ const SubmitResponseMessage: React.FC<
             directly via email.
           </div>
         )}
+        <br />
         <button
           onClick={() => {
             setSubmitResponse(undefined);
           }}
         >
-          ok
+          OK
         </button>
       </div>
     </div>
