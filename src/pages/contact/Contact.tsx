@@ -82,7 +82,6 @@ const Contact: React.FC = () => {
     try {
       setIsLoading(true);
       const body: EmailData = form.data(isEmailData);
-      console.log(body);
       const response = await fetch(
         `${process.env.REACT_APP_EMAIL_SERVICE_URL}/email`,
         {
@@ -91,13 +90,11 @@ const Contact: React.FC = () => {
           body: JSON.stringify(body),
         }
       );
-      console.log(response, "<-");
       if (!response.ok || response.status !== 200) {
         setIsLoading(false);
         throw Error("bad response");
       }
       const responseData = await response.json();
-      console.log(responseData);
       setSubmitResponse({
         isError: false,
         message: "",
